@@ -1,0 +1,10 @@
+baseurl = "//thlog.anfedorov.com/"
+languageCode = "en-us"
+title = "/log/thoughts"
+theme = "hyde"
+publishDir = "docs"
+
+[params]
+  themeColor = "theme-base-0d"
+  description = "some silly, some profound"
+  copyright = " "

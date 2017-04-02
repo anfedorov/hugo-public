@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>/log/thoughts</title>
+    <link>//thlog.anfedorov.com/index.xml</link>
+    <description>Recent content on /log/thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright> </copyright>
+    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//thlog.anfedorov.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Guardian v WhatsApp</title>
+      <link>//thlog.anfedorov.com/post/guardian-v-whatsapp/</link>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/guardian-v-whatsapp/</guid>
+      <description>
+
+&lt;h3 id=&#34;what-happened&#34;&gt;What happened?&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Nathaniel Mott wrote and The Guardian published &lt;a href=&#34;https://www.theguardian.com/technology/2017/jan/14/whatsapp-vulnerability-secure-messaging-apps&#34;&gt;a false story&lt;/a&gt; about a WhatsApp &amp;ldquo;vulnerability&amp;rdquo; that&amp;rsquo;s more accurately described as a security trade-off appropriate for about 99.99% of their users and recommending folks use Signal instead.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Outrage ensued, culminating in &lt;a href=&#34;https://whispersystems.org/blog/there-is-no-whatsapp-backdoor/&#34;&gt;a rebuttal&lt;/a&gt; by the Signal protocol&amp;rsquo;s author and &lt;a href=&#34;http://technosociology.org/?page_id=1687&#34;&gt;an open letter&lt;/a&gt; calling for an apology and retraction, co-signed by 72 academic and industry experts.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Guardian &lt;a href=&#34;https://www.theguardian.com/technology/2017/jan/16/whatsapp-vulnerability-facebook&#34;&gt;doubled down&lt;/a&gt; with an article by Tobias Boelter, the grad student responsible for the original claim, mis-representing the rebuttals as semantic arguments over what constitutes a &amp;ldquo;backdoor&amp;rdquo;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;the-wrong-approach&#34;&gt;The Wrong Approach&lt;/h3&gt;
+
+&lt;p&gt;While the technical parts of Mott and Boelter&amp;rsquo;s falsehoods have been addressed well, the legal and political angle seems to have been missed.&lt;/p&gt;
+
+&lt;p&gt;For those who care about this sort of thing, WhatsApp provides an option to enable a warning when a user&amp;rsquo;s identity keys change. More importantly than this fact itself, however, is that these are the identical default and setting that are provided by Google Allo for incognito chats. And more important still: while the default is the same, the &amp;ldquo;show key changes&amp;rdquo; option is wholly absent from Apple&amp;rsquo;s Messages, which avoids mentioning identity keys to its users altogether.&lt;/p&gt;
+
+&lt;p&gt;If these folks were serious about reporting a &amp;ldquo;vulnerability&amp;rdquo; to the public, why not at least mention that Google&amp;rsquo;s end-to-end-encrypted solution as well as Apple&amp;rsquo;s platform have the same &amp;ldquo;backdoor&amp;rdquo;?&lt;/p&gt;
+
+&lt;p&gt;More importantly: why did The Guardian focus on Facebook&amp;rsquo;s WhatsApp when it is materially better for verifying keys and telling users about key changes than Apple&amp;rsquo;s iMessage clients are?&lt;/p&gt;
+
+&lt;h3 id=&#34;trusting-identity-keys&#34;&gt;Trusting Identity Keys&lt;/h3&gt;
+
+&lt;p&gt;In the wake of this minor piece of misinformation, one important question remains hanging: can law enforcement force Google, Apple, or Facebook to lie to users about their friend&amp;rsquo;s identity keys?&lt;/p&gt;
+
+&lt;p&gt;You see, when I message Bob over iMessage or Allo or WhatsApp, I am trusting Apple, Google, and Facebook to correctly forward me the identity keys unique to his devices. These identity keys are what allows me to encrypt my messages in a way only Bob&amp;rsquo;s devices can decrypt.&lt;/p&gt;
+
+&lt;p&gt;I have looked and cannot find any, but if there is a legal method by which anyone can force an American company to lie to a user about how many devices another user owns or what their keys are, I&amp;rsquo;d be curious to learn about it.&lt;/p&gt;
+
+&lt;p&gt;[good follow-up discussion &lt;a href=&#34;https://lobste.rs/s/c6ey8s/guardian_v_whatsapp&#34;&gt;here&lt;/a&gt;]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Economics and Politics of Free Basics</title>
+      <link>//thlog.anfedorov.com/post/free-basics/</link>
+      <pubDate>Sun, 21 Feb 2016 09:38:27 -0800</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/free-basics/</guid>
+      <description>
+
+&lt;h3 id=&#34;facebook-internet-a-nutshell&#34;&gt;Facebook Internet: a nutshell&lt;/h3&gt;
+
+&lt;p&gt;Facebook&amp;rsquo;s Internet.org brand is &lt;a href=&#34;http://www.wired.com/2015/09/facebook-renames-controversial-internet-org-app/&#34;&gt;starting to go away&lt;/a&gt;. Good. The initiative is not the internet and it&amp;rsquo;s not a non-profit organization. It is an advertiser funded micro-network, similar in function to earlier incarnations of AOL, and it&amp;rsquo;s now called Free Basics. This is a significantly more honest name, and for that, Facebook deserves credit. Honest PR is good PR because it allows us to move past semantics and into the politics and economics of the project.&lt;/p&gt;
+
+&lt;p&gt;The pitch is encompassed in the name: basic internet services, like WhatsApp and Facebook and Wikipedia, provided free to users. At the heart of the argument is that for the currently un-networked world, any network is obviously better than no network.&lt;/p&gt;
+
+&lt;p&gt;This is true only in the extremely short term, however, because while everybody agrees that connectivity is a pre-requisite for equality and that we want to work towards everyone having access to the internet, the question which remains open is how we expand our current network to them and — perhaps more importantly — who pays for it.&lt;/p&gt;
+
+&lt;h3 id=&#34;network-expansion-paid-by-users-or-paid-by-advertisers&#34;&gt;Network Expansion: paid by users or paid by advertisers&lt;/h3&gt;
+
+&lt;p&gt;A network &lt;em&gt;paid for by users&lt;/em&gt; will be fundamentally different than one &lt;em&gt;paid for by advertisers&lt;/em&gt;, but similar enough that they are &lt;em&gt;substitute goods&lt;/em&gt;, meaning the presence of one will inhibit the spread of the other. By the simplest economic reasoning, in the long term, Free Basics will hurt the spread of user-funded networks like the internet, just as &lt;a href=&#34;http://www.cnn.com/2013/04/12/business/second-hand-clothes-africa/&#34;&gt;free clothing hurts local textile industries&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can predict these fundamental differences by considering the interests of those paying for the network&amp;rsquo;s deployment. In particular, the difference will &lt;em&gt;not&lt;/em&gt; be the set of sites included in Free Basics, as the interests there align: more sites are better, and full internet access is best. While Free Basics will likely become Free Internet, the real difference stems from the modern advertising industry&amp;rsquo;s north star: modeling and targeting consumer beliefs and behavior. Therefore, the fundamental differences between user-funded networks and advertiser-funded ones will likely be in the design decisions around the privacy of the users.&lt;/p&gt;
+
+&lt;h3 id=&#34;privacy-interests-in-practice&#34;&gt;Privacy interests in practice&lt;/h3&gt;
+
+&lt;p&gt;To see how this theory plays out in practice, let&amp;rsquo;s take a look at &lt;a href=&#34;https://developers.facebook.com/docs/internet-org/platform-technical-guidelines&#34;&gt;the techincal details of Free Basics&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When people use the Free Basics Android app, their traffic is encrypted end-to-end&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;While end-to-end encryption prevents monitoring by intermediaries, Facebook can track your every tap and scroll in their app. Even if they don&amp;rsquo;t do it now, it would certainly be in Facebook&amp;rsquo;s business interests in the long term, as long as they can find a reason. This would be similar to their use of the &amp;ldquo;Like&amp;rdquo; button, the loading of which they started tracking only after adoption spread enough for the benefit of data gathering to outweigh the costs of &lt;a href=&#34;http://jasonlefkowitz.net/2011/10/dont-worry-about-selling-your-privacy-to-facebook-i-already-sold-it-for-you/&#34;&gt;bad PR&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;For the Free Basics website in a mobile browser, we use a “dual certificate” model&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For traffic that doesn&amp;rsquo;t go through their app, Facebook decrypts, intercepts, and re-encrypts it. This interception allows for the filtering of content which might be high-bandwidth. It &lt;em&gt;also&lt;/em&gt; allows for individualized monitoring on a massive scale. With that thought in mind, we get to the key sentence:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We preserve the privacy of that information while it&amp;rsquo;s decrypted by only storing the domain name of your service and the amount of data being used—the same information that would be visible using end-to-end encryption—as well as cookies that are stored in an encrypted and unreadable format.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s a lot of distraction. Allow me to rephrase more succinctly:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We record which site was visited, the amount of data used, and cookies.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For public sites (e.g. wikipedia, news), knowing the exact size of the payloads usually identifies the page, and cookies are how other ad networks keep track of who you are and often the consumer segments you&amp;rsquo;ve been placed. I&amp;rsquo;m not sure what the point of storing something &amp;ldquo;in an encrypted and unreadable format&amp;rdquo; is, but it seems safe to assume that if a segment cookie marks all the users a data warehouse considers lesbians, Facebook&amp;rsquo;s models will include it even if they don&amp;rsquo;t says &amp;ldquo;lesbian&amp;rdquo; explicitly.&lt;/p&gt;
+
+&lt;p&gt;The general implications seem clear: Facebook will know more about Free Basics users than anyone else, and will therefore be able to advertise to them better than anyone else. While Facebook might not take advantage of it until adoption reaches a point where the benefit of using this data outweighs the PR costs, there seems to me little doubt that their business and user privacy are fundamentally at odds.&lt;/p&gt;
+
+&lt;h3 id=&#34;final-thought&#34;&gt;Final Thought&lt;/h3&gt;
+
+&lt;p&gt;Practically speaking, the costs and benefits of Free Basics appear to have few obvious answers one way or the other, and depend on the extent to which machine learning is able to model human beliefs and behavior, the political systems of the countries where it is being deployed, and a multitude of other factors. I think it is important to look at the nuanced trade-offs honestly and dispassionately and not pretend or argue that either option is an obvious win.&lt;/p&gt;
+
+&lt;h3 id=&#34;ackgnowledgements&#34;&gt;Ackgnowledgements&lt;/h3&gt;
+
+&lt;p&gt;Thanks to everyone who proofread this. An earlier draft of this post is &lt;a href=&#34;//thlog.anfedorov.com/post/free-basics-0/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Economics and Politics of Free Basics</title>
+      <link>//thlog.anfedorov.com/post/free-basics-0/</link>
+      <pubDate>Mon, 28 Dec 2015 11:33:01 -0800</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/free-basics-0/</guid>
+      <description>&lt;p&gt;Facebook&amp;rsquo;s Internet.org brand is &lt;a href=&#34;http://www.wired.com/2015/09/facebook-renames-controversial-internet-org-app/&#34;&gt;starting to go away&lt;/a&gt;. Good. The initiative is not the internet and it&amp;rsquo;s not a non-profit organization. It is &lt;a href=&#34;http://geekandpoke.typepad.com/geekandpoke/2010/12/the-free-model.html&#34;&gt;the &amp;ldquo;free&amp;rdquo; model&lt;/a&gt; applied to a curated micro-network like the earlier incarnations of AOL, and it&amp;rsquo;s now called Free Basics. This is a significantly more honest name, and for that, Facebook deserves credit. Honest PR is good PR because it allows us to move past semantics and into the politics and economics of the project.&lt;/p&gt;
+
+&lt;p&gt;The heart of the argument is that for the un-networked world, Free Basics is obviously better than no network. This is true only in the extremely short term. Everybody agrees that connectivity is a pre-requisite for equality and that we want to work towards everyone having access to the internet. The open question is how we expand our current network to them and — most importantly — who pays for it.&lt;/p&gt;
+
+&lt;p&gt;A network paid for by foreign business interests and advertisers will be fundamentally different than a network paid for by its users (i.e. where the customers are also the consumers). But even with fundamental differences, Free Basics and user-funded internet access are in many ways &lt;em&gt;substitute goods&lt;/em&gt;, meaning the presence of one will reduce the spread of the other. By the simplest economic reasoning, in the long term, Free Basics will hurt the spread of user-funded networks like the internet, just as &lt;a href=&#34;http://www.cnn.com/2013/04/12/business/second-hand-clothes-africa/&#34;&gt;free clothing hurts local textile industries&lt;/a&gt;. And the more sites join the Free Basics platform, the more competitive it will become.&lt;/p&gt;
+
+&lt;p&gt;By considering the interests of those paying for the network&amp;rsquo;s deployment, we can predict what their fundamental differences will be. It is not in the set of sites included in Free Basics, as the interests there align: more sites are better, and full internet access is best. The modern advertising industry&amp;rsquo;s endgame is in modeling and manipulating user behavior on an individual level, and so the fundamental differecene between user-funded networks and advertiser-funded ones will be in the design decisions around the privacy intersts of the users.&lt;/p&gt;
+
+&lt;p&gt;To see how this theory plays out in practice, let&amp;rsquo;s take a look at &lt;a href=&#34;https://developers.facebook.com/docs/internet-org/platform-technical-guidelines&#34;&gt;the techincal details of Free Basics&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When people use the Free Basics Android app, their traffic is encrypted end-to-end&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;End-to-end encryption is great, but in their app, because it&amp;rsquo;s their app, Facebook can track your every tap and scroll. Even if they don&amp;rsquo;t do it now, it would certainly be in Facebook&amp;rsquo;s busines interests in the long term, if they find a way to brand it nicely. This would be similar to their use of the &amp;ldquo;Like&amp;rdquo; button, the loading of which they started tracking only after adoption spread enough for the benefit of data gathering to outweigh the costs of &lt;a href=&#34;http://jasonlefkowitz.net/2011/10/dont-worry-about-selling-your-privacy-to-facebook-i-already-sold-it-for-you/&#34;&gt;bad PR&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;For the Free Basics website in a mobile browser, we use a “dual certificate” model&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For traffic that doesn&amp;rsquo;t go through their app, Facebook decrypts, intercepts, and re-encrypts it. This interception allows for the filtering of content which might be high-bandwidth. It &lt;em&gt;also&lt;/em&gt; allows for individualized monitoring on a massive scale, and with that thought, we get to the key sentence:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We preserve the privacy of that information while it&amp;rsquo;s decrypted by only storing the domain name of your service and the amount of data being used—the same information that would be visible using end-to-end encryption—as well as cookies that are stored in an encrypted and unreadable format.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s a lot of distraction. Allow me to rephrase more succinctly:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We record which site was visited, the amount of data used, and cookies.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For public sites (e.g. wikipedia, news), knowing the exact size of the payloads usually identifies the page, and cookies are how other ad networks keep track of who you are and often the consumer segments you&amp;rsquo;ve been placed. I&amp;rsquo;m not sure what the point of storing something &amp;ldquo;in an encrypted and unreadable format&amp;rdquo; is, so I&amp;rsquo;ll assume they also store the decryption key and that language is just a decoy. The general implications seem clear: Facebook will know more about Free Basics users than anyone else, and will therefore be able to advertise to them better than anyone else. While Facebook might not take advantage of it until adoption reaches a point where the benefit of using this data outweighs the PR costs, there seems to me little doubt that their business interests and user&amp;rsquo;s privacy intersets are fundamentally at odds.&lt;/p&gt;
+
+&lt;p&gt;Practically, the costs and benefits of Free Basics have no obvious answer one way or the other, as they depend on the extent to which machine learning is able to model human behavior, the political systems of the countries where it is being deployed, and a multitude of other factors. I do think it is important to look at the nuanced trade-offs honestly and dispassionately and not pretend or argue that either option is an obvious win.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Apple, Lavabit, and Legal Intercept</title>
+      <link>//thlog.anfedorov.com/post/apple-lavabit-legal-intercept/</link>
+      <pubDate>Sun, 11 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/apple-lavabit-legal-intercept/</guid>
+      <description>
+
+&lt;p&gt;This post summarizes my thoughts about what seem to be persistent misunderstandings about Apple&amp;rsquo;s iMessage and FaceTime cryptographic system and their relation to Lavabit&amp;rsquo;s legal case. The post ends with some history as well as opinions about security as it pertains to communications infrastructure.&lt;/p&gt;
+
+&lt;h1 id=&#34;apple&#34;&gt;Apple&lt;/h1&gt;
+
+&lt;p&gt;Apple says they couldn&amp;rsquo;t comply with a wiretap order on iMessage and FaceTime &lt;a href=&#34;http://www.apple.com/privacy/privacy-built-in/&#34;&gt;even if they wanted to&lt;/a&gt;, but Nicholas Weave, echoing an idea often repeated, &lt;a href=&#34;https://www.lawfareblog.com/iphones-fbi-and-going-dark&#34;&gt;says otherwise&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;[&amp;hellip;] to tap Alice, it is straightforward to modify the keyserver to present an additional FBI key for Alice to everyone but Alice [and] an FBI key to every request Alice makes for any keys other than her own.&lt;/p&gt;
+
+&lt;p&gt;[&amp;hellip;] Apple’s architecture for iMessage supports wiretapping&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;He is right that Apple could intercept your communications if they wanted to because they control the key servers that introduce the callers to each other. They can also do so because they made the hardware and software you use to make the call.&lt;/p&gt;
+
+&lt;p&gt;The big difference between that and a wiretap is &amp;ldquo;can the government order them to do so?&amp;rdquo;, and the answer is &amp;ldquo;no&amp;rdquo;. Even if they could, because the protocol can be &lt;a href=&#34;https://news.ycombinator.com/item?id=6435902&#34;&gt;reverse engineered&lt;/a&gt;, a sophisticated enough target could analyze the traffic to see the extra key.&lt;/p&gt;
+
+&lt;p&gt;I understand that Nicholas is not a lawyer and so might not realize that &amp;ldquo;wiretap&amp;rdquo; has a very specific legal definition. Neither am I, but I think it goes something like this:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It&amp;rsquo;s a power we&amp;rsquo;ve decided to give investigators&lt;/li&gt;
+&lt;li&gt;once they get approval from a judge&lt;/li&gt;
+&lt;li&gt;to order communications to be copied over to them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In security lingo, a wiretap allows investigators and judges to order a company to perform a &lt;a href=&#34;https://en.wikipedia.org/wiki/Passive_attack&#34;&gt;passive attack&lt;/a&gt; on information flowing through their systems.&lt;/p&gt;
+
+&lt;p&gt;I imagine the reasoning for giving judges this power is very much like that of a subpoena order used to hand over information or compel testimony related to a case. But there is no legal reasoning which justifies ordering someone to lie, be it to their friends or family, customers or business partners. This is as true for Apple&amp;rsquo;s key servers as it is for an online search for a doctor. Ordering people or companies to lie is simply not the kind of power investigators or judges have [1].&lt;/p&gt;
+
+&lt;h1 id=&#34;lavabit&#34;&gt;Lavabit&lt;/h1&gt;
+
+&lt;p&gt;Lavabit&amp;rsquo;s &amp;ldquo;secure&amp;rdquo; email system&amp;rsquo;s design was flawed in light of the laws they operated under. I&amp;rsquo;m not wholly sure why Snowden (allegedly) chose to use their service, but it almost certainly wasn&amp;rsquo;t because he expected his emails to remain hidden from a federal investigation.&lt;/p&gt;
+
+&lt;p&gt;At the crux of Lavabit&amp;rsquo;s failure is that they didn&amp;rsquo;t use &lt;a href=&#34;https://en.wikipedia.org/wiki/Forward_secrecy&#34;&gt;forward secrecy&lt;/a&gt; on their https connections, something OpenSSL has supported &lt;a href=&#34;http://googleonlinesecurity.blogspot.com.au/2011/11/protecting-data-for-long-term-with.html&#34;&gt;since 2011&lt;/a&gt;. This means that handing over their private key rendered all of their user&amp;rsquo;s traffic retroactively insecure.&lt;/p&gt;
+
+&lt;p&gt;So when a judge ordered Lavabit to hand over their key because it fit the definition of information pertaining to a crime, they responded with the legal equivalent of a hissy fit. After some fines and what I imagine as stern talks from their lawyers boiling down to &amp;ldquo;unless you want to go to jail for a while, you should obey the judge&amp;rsquo;s orders&amp;rdquo;, they decided to forgo the promises made to their users, hand over their private keys, and close shop.&lt;/p&gt;
+
+&lt;p&gt;Had Lavabit used forward secrecy, they would have been in a significantly stronger legal position to protect their customer&amp;rsquo;s privacy because a judge cannot order them to keep using a compromized key, and forward secrecy would ensure the key wasn&amp;rsquo;t useful retroactively.&lt;/p&gt;
+
+&lt;h1 id=&#34;more-than-wiretaps&#34;&gt;More than wiretaps&lt;/h1&gt;
+
+&lt;p&gt;Although it&amp;rsquo;s outside of the scope of the point I&amp;rsquo;m trying to make in this article, it&amp;rsquo;s important to note that the executive has other tools at their disposal for extraordinary crimes like terrorism, espionage, and sophisticated criminal conspiracies.&lt;/p&gt;
+
+&lt;p&gt;The legal details here vary, but there are &lt;a href=&#34;https://en.wikipedia.org/wiki/National_security_letter&#34;&gt;administrative subpoenas&lt;/a&gt;, which could force an Apple employee to hand over their private key without telling the company [2], &lt;a href=&#34;https://en.wikipedia.org/wiki/Executive_Order_12333&#34;&gt;executive orders&lt;/a&gt; which reorganize the rules that the executive agencies work under, and plain old hacking authorized by &lt;a href=&#34;https://en.wikipedia.org/wiki/Authorization_for_Use_of_Military_Force_Against_Terrorists&#34;&gt;AUMF&amp;rsquo;s&lt;/a&gt;. Checks on these are significantly more complex because they involve disclosing secret techniques and methods to more parties, sometimes even the targets, and so using them is not wise for the prosecution of ordinary crimes.&lt;/p&gt;
+
+&lt;p&gt;As long as there exist extraordinary crimes, investigator require extraordinary powers to combat them. Of course checks on these powers are needed, but they are fundamentally different from those on a wiretap order.&lt;/p&gt;
+
+&lt;h1 id=&#34;some-history&#34;&gt;Some History&lt;/h1&gt;
+
+&lt;p&gt;While state sponsored hackers and the like are interesting, the availability of end-to-end crypto affect us immeasurably more day-to-day. The most complete evaluation of cryptographic communications I can find was &lt;a href=&#34;https://www.eff.org/secure-messaging-scorecard&#34;&gt;done by the EFF&lt;/a&gt;. In this section, I want to add some history to the services you have likely heard of:&lt;/p&gt;
+
+&lt;h3 id=&#34;microsoft-s-skype&#34;&gt;Microsoft&amp;rsquo;s Skype&lt;/h3&gt;
+
+&lt;p&gt;The original architecture of Skype as released in 2003 had a peer-to-peer network and needed to be end-to-end encrypted so that routing peers couldn&amp;rsquo;t listen in on calls. The eBay acquisition in 2005 did not include the p2p network that routed these calls, and Skype remained an end-to-end encrypted service until Microsoft acquired it in 2011 and replaced the p2p infrastructure with one that routes all calls through their servers.&lt;/p&gt;
+
+&lt;h3 id=&#34;google-s-hangouts&#34;&gt;Google&amp;rsquo;s Hangouts&lt;/h3&gt;
+
+&lt;p&gt;A similar story happened with the &lt;a href=&#34;http://gmailblog.blogspot.com/2008/11/say-hello-to-gmail-voice-and-video-chat.html&#34;&gt;Gmail voice and video chat plugin&lt;/a&gt; introduced in 2008, which connected callers directly over the internet and so required end-to-end encryption for similar reasons. That was deprecated and replaced with Hangouts in 2013, which routes all traffic through Google servers. Although I hear that Google intends to again provide end-to-end encryption by default in the near future, their currently mass-deployed systems all include access to the contents of the message and are susceptible to wiretaps.&lt;/p&gt;
+
+&lt;h3 id=&#34;facebook-s-messanger&#34;&gt;Facebook&amp;rsquo;s Messanger&lt;/h3&gt;
+
+&lt;p&gt;Facebook&amp;rsquo;s messenger started by using Microsoft&amp;rsquo;s Skype technology and recently replaced it with their own centralized routing infrastructure. As far as I can tell, end-to-end crypto and challenging wiretaps has never been on Facebook&amp;rsquo;s radar.&lt;/p&gt;
+
+&lt;h3 id=&#34;apple-s-imessage-and-facetime&#34;&gt;Apple&amp;rsquo;s iMessage and FaceTime&lt;/h3&gt;
+
+&lt;p&gt;Apple has the largest deployed telecom system which uses end-to-end crypto and is not susceptible to wiretap orders. Unlike Lavabit, though, Apple seems to have checked the laws before building the system, not after receiving a subpoena. In jurisdictions where such systems are illegal (e.g. Saudi Arabia) Apple &lt;a href=&#34;https://support.apple.com/en-us/HT204042&#34;&gt;disables FaceTime entirely&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;blackberry-s-bbm-protected&#34;&gt;Blackberry&amp;rsquo;s BBM Protected&lt;/h3&gt;
+
+&lt;p&gt;The enterprise messenger from Blackberry, &lt;a href=&#34;http://us.blackberry.com/enterprise/products/bbm-protected.html&#34;&gt;BBM Protected&lt;/a&gt; was introduced in 2014 with end-to-end crypto for chats. Although I haven&amp;rsquo;t used it personally, I hear it&amp;rsquo;s quite popular in the business world.&lt;/p&gt;
+
+&lt;h3 id=&#34;open-whisper-systems&#34;&gt;Open Whisper Systems&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://whispersystems.org&#34;&gt;Open Whisper Systems&lt;/a&gt; also provides end-to-end cryptography on voice calls and text chats, but relatively few people use them. The biggest design difference between their system and the two before is that they have released their source code, meaning finding weaknesses in their design or implementation doesn&amp;rsquo;t involve any reverse engineering and so is cheaper both for security researchers and attackers alike. Given their relatively limited resources and deployment, this trade-off makes a lot of sense.&lt;/p&gt;
+
+&lt;h1 id=&#34;opinions&#34;&gt;Opinions&lt;/h1&gt;
+
+&lt;p&gt;A security system is like a chain in that it is as strong as its weakest link.&lt;/p&gt;
+
+&lt;p&gt;There is little contention that adding support for wiretap orders to communications infrastructure increases the number of links in its chain and so can only decrease its security. This is especially true against passive attackers acting not wholly within the law, such as in cases of &lt;a href=&#34;https://en.wikipedia.org/wiki/Operation_Aurora&#34;&gt;foreign espionage&lt;/a&gt; or &lt;a href=&#34;http://cdn01.androidauthority.net/wp-content/uploads/2014/06/SSL-Added-and-Removed-Here.jpg&#34;&gt;sub-legal intercept&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s look at a couple of links in this chain:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;The Superusers&lt;/em&gt;: People who have access to internal tools need to have that access logged and reviewed. If they interact with strangers, they should be aware of possible phishing attacks. This is pretty obvious, not enormously costly, and straightforward to implement.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;The Coders&lt;/em&gt;: Reviewing each other&amp;rsquo;s code before deploying it is standard practice for software engineers, as is keeping a version history of who changed what and when. This makes sneaking backdoors into code a relatively high-risk attack.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;The Sysadmins&lt;/em&gt;: Someone connecting to a production server and downloading data without a trace can usually do so with significantly less risk of being caught. Tools that would allow one to record or mirror raw network traffic going to and from a machine are standard on most production systems because they are necessary for debugging. Forcing sysadmins to pair is one possible way to address such an insider problem, but is relatively costly. Modeling traffic patterns on production machines is another, which leads to a relatively complicated disguise / detect with a second level of security / insider problem.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;The Datacenter Technicians&lt;/em&gt;: I&amp;rsquo;m not totally sure what goes into the physical security of a datacenter, but add to the chain all of the people with unchecked physical access to the hardware.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;The Hardware Manufacturers&lt;/em&gt;: I know next to nothing about this, just that manufacturers might ship corrupted hardware.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now, ask yourself &amp;ldquo;how strong is the weakest link?&amp;rdquo;. There sure are a lot of them, and many are human! This is why organizations who care about building highly secure systems do extensive background checks on every employee, rejecting anyone with any potential for blackmail or undue influence, and even then &lt;a href=&#34;https://www.schneier.com/blog/archives/2013/07/nsa_implements.html&#34;&gt;make them pair up&lt;/a&gt;. I have yet to hear of this being done in the private sector, even at companies which may soon be &lt;a href=&#34;https://www.washingtonpost.com/news/the-switch/wp/2014/05/22/nsa-reform-bill-passes-house-despite-loss-of-support-from-privacy-advocates/&#34;&gt;handling the metadata of all of our phone calls&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The costs of background checks and access reviews is real and measurable. There is also the less quantifiable but very costly atmosphere of distrust between coworkers that pairing entails. Unlike a background check at the entrance which creates an in-group of trusted people, pairing enforces a mindset between colleagues as potential adversaries trying to sneak one past you.&lt;/p&gt;
+
+&lt;p&gt;Many of these costs can be mitigated by using end-to-end encryption. In particular, if the datacenter never sees the plain text of the message, the majority of passive attacks by insiders vanishes. Active attacks are still possible, but significantly more risky for the attacker.&lt;/p&gt;
+
+&lt;p&gt;While it&amp;rsquo;s important to acknowledge that legal intercept is an enormously valuable tool used by law enforcement today in a variety of circumstances, it&amp;rsquo;s also worthwhile to realize that its value is decreasing every year and that it&amp;rsquo;s nearly worthless against even moderately sophisticated actors. The costs of maintaining highly secure systems which also support wiretaps is more than most, if not all, private companies are willing to bear.&lt;/p&gt;
+
+&lt;p&gt;It might be time to look at the costs to productivity and security of supporting wiretap orders which only works against unsophisticated actors anyway, and ask whether we will prosper more by building communication systems which support end-to-end encryption for everyone, instead.&lt;/p&gt;
+
+&lt;p&gt;End-to-end encryption is not new. It has been available to techies for decades, broadly deployed by Skype from 2003 to 2011, and now by iMessage and FaceTime since 2012. While it&amp;rsquo;s true that both technologies have been used to make &lt;a href=&#34;http://www.theregister.co.uk/2013/04/04/leaked_imessage_memo_dea_denied/&#34;&gt;some criminal prosecutions more difficult&lt;/a&gt;, they have most certainly been used to protect the targets of attacks, as well.&lt;/p&gt;
+
+&lt;p&gt;[1] This is not to be confused with a gag order, where a judge can order someone to keep from commenting publicly on a legal matter, or keep quiet about something else.&lt;/p&gt;
+
+&lt;p&gt;[2] Unlikely, if their legal orientations are anything like Google&amp;rsquo;s. Another possibility is that Apple receives and complies with a subpoena but does not change its private key.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Earlier versions of this post erroneously mentioned a subpoena issued to Lavabit where the courts had actually used a &lt;a href=&#34;https://www.law.cornell.edu/uscode/text/18/3123&#34;&gt;pen register order&lt;/a&gt; to get Lavabit&amp;rsquo;s encryption keys.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks for reading. Feel free to &lt;a href=&#34;mailto:me@anfedorov.com&#34;&gt;shoot me an email&lt;/a&gt; with corrections, questions, or thoughts.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks, also, to everyone who proofread and provided feedback on this post. This work is licensed under a &lt;a href=&#34;http://creativecommons.org/licenses/by-nd/4.0/&#34;&gt;Creative Commons Attribution-NoDerivatives 4.0 International License&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Judicial Side Doors and Single User Encryption</title>
+      <link>//thlog.anfedorov.com/post/https-part-2/</link>
+      <pubDate>Sun, 11 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/https-part-2/</guid>
+      <description>
+
+&lt;h2 id=&#34;in-theory&#34;&gt;In Theory&lt;/h2&gt;
+
+&lt;p&gt;Bruce Schneier &lt;a href=&#34;https://www.schneier.com/blog/archives/2015/09/tsa_master_keys.html&#34;&gt;writes&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Someone recently noticed a Washington Post story on the TSA that originally contained a detailed photograph of all the TSA master keys. [&amp;hellip;] The whole thing neatly illustrates one of the main problems with backdoors, whether in cryptographic systems or physical systems: they&amp;rsquo;re fragile.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Except in the case of cryptographic systems like full-disk-encryption, they are not. In the TSA baggage key scenario, a copy of the physical master key need to be present wherever baggage is screened. In the cryptographic realm, it&amp;rsquo;s possible to send a &amp;ldquo;lock&amp;rdquo; to the secure location of the master key, decrypt it, and send it back opened. Only one copy of the master key ever needs to exist, and so it&amp;rsquo;s intrinsically a simpler system to protect.&lt;/p&gt;
+
+&lt;p&gt;There are many considerations to be had in the debate about full disk encryption, but the &lt;a href=&#34;https://www.eff.org/deeplinks/2015/08/it-again-law-enforcement-officials-anti-encryption-new-york-times-op-ed&#34;&gt;oft-repeated argument&lt;/a&gt; that it is impossible to have a secure backdoor accessible only via lawful judicial orders does not strike me as very persuasive. One does not need to look far to find secure backdoors &lt;a href=&#34;https://secure2.sophos.com/en-us/lp/sem/enterprise-encryption-trial.aspx&#34;&gt;built into full disk encryption&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We chose to pay for Sophos encryption because of its better administration and data recovery options, even though we have free access to BitLocker via our Microsoft Campus Licensing Agreement.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What are &amp;ldquo;data recovery options&amp;rdquo;? That&amp;rsquo;s another name for a legal side door, and I would wager that among corporations with the resources to administer them, most laptops have it enabled, even if they contain the keys used to access production systems storing sensitive user data.&lt;/p&gt;
+
+&lt;p&gt;Just because side doors can be secure does not mean we should legally mandate them, however. A more convincing argument is that legislating away phones or computers running one algorithm or another is simply infeasible in the real world.&lt;/p&gt;
+
+&lt;h2 id=&#34;in-the-real-world&#34;&gt;In the Real World&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say a law was passed in the US prohibiting encryption with single-user access, and I was coming back from Russia or China with a smart phone I bought there, where it&amp;rsquo;s legal. Would the border agent tell me &amp;ldquo;sorry, your phone is too secure to be allowed into America&amp;rdquo;? That seems unlikely.&lt;/p&gt;
+
+&lt;p&gt;Then there appear to be two alternatives: either (1) people can bring into the US more secure devices than can be legally bought here, or (2) US law enforcement can keep developing methods for preventing, finding, and prosecuting crime in the world we find ourselves in today, one where many people, not just those with extraordinary resources, carry devices that only they can access.&lt;/p&gt;
+
+&lt;p&gt;What kind of effect will these options have on the systems of criminals and law enforcement (LE)?&lt;/p&gt;
+
+&lt;p&gt;Creating a two tiers of &amp;ldquo;foreign devices with single-user encryption&amp;rdquo; and &amp;ldquo;American devices with a judicial master key&amp;rdquo; will definitely make some criminals easier to prosecute. Unplanned crimes of passion or those committed by low-resource individuals and will be easier to solve. These cases might keep LE busy and getting promotions, while criminals who have training or resources will naturally get less attention solely because it&amp;rsquo;s harder to prosecute them. Especially egregious resourceful criminals will still be worth the trouble, but there will be a large class of slightly smarter criminals who are simply not worth the trouble when simpler cases abound.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, making the default phone a strongly encrypted device &lt;a href=&#34;https://www.nytimes.com/2015/08/12/opinion/apple-google-when-phone-encryption-blocks-justice.html&#34;&gt;seems scary&lt;/a&gt;. Let&amp;rsquo;s think about it in the long term, though. Making it cheaper to be a sophisticated criminal actually weakens the power of criminals with resources, since LE will choose which cases to pursue based more on the severity of the crime, and less on who is the easier target. More LE resources will be devoted to finding informants, turning conspirators, and infiltrating gangs, not simply prosecuting anyone who had an unecrypted phone full of incriminating evidence.&lt;/p&gt;
+
+&lt;p&gt;While the short term is less certain, imagining these two possible long-term futures, there appears to me little ambiguity as to which is preferable. The important question to answer is &amp;ldquo;when?&amp;rdquo;, and considering the state we find ourselves in presently, the answer might very well be &amp;ldquo;now&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Judicial Side Doors and Single User Encryption</title>
+      <link>//thlog.anfedorov.com/post/re-judicial-side-doors/</link>
+      <pubDate>Sun, 11 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/re-judicial-side-doors/</guid>
+      <description>
+
+&lt;h2 id=&#34;in-theory&#34;&gt;In Theory&lt;/h2&gt;
+
+&lt;p&gt;Bruce Schneier &lt;a href=&#34;https://www.schneier.com/blog/archives/2015/09/tsa_master_keys.html&#34;&gt;writes&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Someone recently noticed a Washington Post story on the TSA that originally contained a detailed photograph of all the TSA master keys. [&amp;hellip;] The whole thing neatly illustrates one of the main problems with backdoors, whether in cryptographic systems or physical systems: they&amp;rsquo;re fragile.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Except in the case of cryptographic systems like full-disk-encryption, they are not. In the TSA baggage key scenario, a copy of the physical master key need to be present wherever baggage is screened. In the cryptographic realm, it&amp;rsquo;s possible to send a &amp;ldquo;lock&amp;rdquo; to the secure location of the master key, decrypt it, and send it back opened. Only one copy of the master key ever needs to exist, and so it&amp;rsquo;s intrinsically a simpler system to protect.&lt;/p&gt;
+
+&lt;p&gt;There are many considerations to be had in the debate about full disk encryption, but the &lt;a href=&#34;https://www.eff.org/deeplinks/2015/08/it-again-law-enforcement-officials-anti-encryption-new-york-times-op-ed&#34;&gt;oft-repeated argument&lt;/a&gt; that it is impossible to have a secure backdoor accessible only via lawful judicial orders does not strike me as very persuasive. One does not need to look far to find secure backdoors &lt;a href=&#34;https://secure2.sophos.com/en-us/lp/sem/enterprise-encryption-trial.aspx&#34;&gt;built into full disk encryption&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We chose to pay for Sophos encryption because of its better administration and data recovery options, even though we have free access to BitLocker via our Microsoft Campus Licensing Agreement.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What are &amp;ldquo;data recovery options&amp;rdquo;? That&amp;rsquo;s another name for a legal side door, and I would wager that among corporations with the resources to administer them, most laptops have it enabled, even if they contain the keys used to access production systems storing sensitive user data.&lt;/p&gt;
+
+&lt;p&gt;Just because side doors can be secure does not mean we should legally mandate them, however. A more convincing argument is that legislating away phones or computers running one algorithm or another is simply infeasible in the real world.&lt;/p&gt;
+
+&lt;h2 id=&#34;in-the-real-world&#34;&gt;In the Real World&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say a law was passed in the US prohibiting encryption with single-user access, and I was coming back from Russia or China with a smart phone I bought there, where it&amp;rsquo;s legal. Would the border agent tell me &amp;ldquo;sorry, your phone is too secure to be allowed into America&amp;rdquo;? That seems unlikely.&lt;/p&gt;
+
+&lt;p&gt;Then there appear to be two alternatives: either (1) people can bring into the US more secure devices than can be legally bought here, or (2) US law enforcement can keep developing methods for preventing, finding, and prosecuting crime in the world we find ourselves in today, one where many people, not just those with extraordinary resources, carry devices that only they can access.&lt;/p&gt;
+
+&lt;p&gt;What kind of effect will these options have on the systems of criminals and law enforcement (LE)?&lt;/p&gt;
+
+&lt;p&gt;Creating a two tiers of &amp;ldquo;foreign devices with single-user encryption&amp;rdquo; and &amp;ldquo;American devices with a judicial master key&amp;rdquo; will definitely make some criminals easier to prosecute. Unplanned crimes of passion or those committed by low-resource individuals and will be easier to solve. These cases might keep LE busy and getting promotions, while criminals who have training or resources will naturally get less attention solely because it&amp;rsquo;s harder to prosecute them. Especially egregious resourceful criminals will still be worth the trouble, but there will be a large class of slightly smarter criminals who are simply not worth the trouble when simpler cases abound.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, making the default phone a strongly encrypted device &lt;a href=&#34;https://www.nytimes.com/2015/08/12/opinion/apple-google-when-phone-encryption-blocks-justice.html&#34;&gt;seems scary&lt;/a&gt;. Let&amp;rsquo;s think about it in the long term, though. Making it cheaper to be a sophisticated criminal actually weakens the power of criminals with resources, since LE will choose which cases to pursue based more on the severity of the crime, and less on who is the easier target. More LE resources will be devoted to finding informants, turning conspirators, and infiltrating gangs, not simply prosecuting anyone who had an unecrypted phone full of incriminating evidence.&lt;/p&gt;
+
+&lt;p&gt;While the short term is less certain, imagining these two possible long-term futures, there appears to me little ambiguity as to which is preferable. The important question to answer is &amp;ldquo;when?&amp;rdquo;, and considering the state we find ourselves in presently, the answer might very well be &amp;ldquo;now&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>VPN and WebRTC</title>
+      <link>//thlog.anfedorov.com/post/vpns-webrtc/</link>
+      <pubDate>Tue, 28 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/vpns-webrtc/</guid>
+      <description>&lt;p&gt;A &lt;a href=&#34;https://www.privacytools.io/webrtc.html&#34;&gt;curious demo&lt;/a&gt; where a web server sends you JS that sends back your internal network IP address via &lt;a href=&#34;https://en.wikipedia.org/wiki/STUN&#34;&gt;the STUN protocol&lt;/a&gt; intended to work around the structure of NAT&amp;rsquo;s for peer-to-peer connections. What does that leak about a VPN connection?&lt;/p&gt;
+
+&lt;p&gt;Over PPTP:&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;//thlog.anfedorov.com/img/PPTP.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Well, that&amp;rsquo;s worrying.&lt;/p&gt;
+
+&lt;p&gt;What about over L2TP?&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;//thlog.anfedorov.com/img/L2TP.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;hm&amp;hellip; and over OpenVPN?&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;//thlog.anfedorov.com/img/openvpn.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Well, that&amp;rsquo;s somewhat comforting, at least.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;todo.add(&#39;learn how the VPN wizardry works&#39;)&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
