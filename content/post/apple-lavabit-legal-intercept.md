@@ -2,6 +2,7 @@
 date = "2015-10-11"
 title = "Apple, Lavabit, and Legal Intercept"
 linktitle = "Apple, Lavabit, Legal Intercept"
+menu = "main"
 +++
 
 This post summarizes my thoughts about what seem to be persistent misunderstandings about Apple's iMessage and FaceTime cryptographic system and their relation to Lavabit's legal case. The post ends with some history as well as opinions about security as it pertains to communications infrastructure.

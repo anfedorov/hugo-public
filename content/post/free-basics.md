@@ -3,7 +3,6 @@ date = "2016-02-21T09:38:27-08:00"
 menu = "main"
 title = "The Economics and Politics of Free Basics"
 linktitle = "Free Basics"
-
 +++
 
 ### Facebook Internet: a nutshell
