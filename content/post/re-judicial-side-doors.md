@@ -1,5 +1,6 @@
 +++
 date = "2015-10-11"
+menu = "main"
 title = "Judicial Side Doors and Single User Encryption"
 linktitle = "single-user-encryption"
 +++

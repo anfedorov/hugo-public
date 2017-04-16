@@ -1,5 +1,6 @@
 +++
 date = "2015-07-18"
+menu = "main"
 title = "Part 1: Chinese Whispers"
 linktitle = "https-part-1"
 +++
