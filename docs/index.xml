@@ -88,17 +88,6 @@ I. Overview From the outside, cryptography is very much like magic. Unlike the m
     </item>
     
     <item>
-      <title>Wildcards and SAN&#39;s in SSL certificates</title>
-      <link>//thlog.anfedorov.com/post/wildcards-sans-in-ssl-certs/</link>
-      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>//thlog.anfedorov.com/post/wildcards-sans-in-ssl-certs/</guid>
-      <description>Prereqs This post assumes you understand the general concepts underlying https and expounds on how certificates specify which domains they validate and summarizes the kind of certifications that Certificate Authorities (CA&amp;rsquo;s) offer.
-Big-picture view There are three layers of rules governing how https certs work, set by various standards bodies and private companies:
- protocol specs from IETF like TLS and HTTP over TLS, publications of the CA/Browser Forum (CABF), and published practices and internal policies specific to a CA.</description>
-    </item>
-    
-    <item>
       <title>Part 1: Chinese Whispers</title>
       <link>//thlog.anfedorov.com/post/https-part-1/</link>
       <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
@@ -106,6 +95,17 @@ Big-picture view There are three layers of rules governing how https certs work,
       <guid>//thlog.anfedorov.com/post/https-part-1/</guid>
       <description>This piece is the start of a series on cryptography on the web. It explains the reasons we need encryption on the web, and Part 2 explains the basic building blocks used.
 I. Behind the Curtain  If you type amazon.com into your browser, your computer reaches out to another computer owned by Amazon, which sends back a bunch of code describing what to draw on your screen and what to do when you click and type into the window.</description>
+    </item>
+    
+    <item>
+      <title>Wildcards and SAN&#39;s in SSL certificates</title>
+      <link>//thlog.anfedorov.com/post/wildcards-sans-in-ssl-certs/</link>
+      <pubDate>Sun, 12 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/wildcards-sans-in-ssl-certs/</guid>
+      <description>Prereqs This post assumes you understand the general concepts underlying https and expounds on how certificates specify which domains they validate and summarizes the kind of certifications that Certificate Authorities (CA&amp;rsquo;s) offer.
+Big-picture view There are three layers of rules governing how https certs work, set by various standards bodies and private companies:
+ protocol specs from IETF like TLS and HTTP over TLS, publications of the CA/Browser Forum (CABF), and published practices and internal policies specific to a CA.</description>
     </item>
     
   </channel>

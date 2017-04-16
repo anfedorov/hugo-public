@@ -1,5 +1,5 @@
 +++
-date = "2015-07-18"
+date = "2015-07-12"
 menu = "main"
 title = "Wildcards and SAN's in SSL certificates"
 linktitle = "Wildcards and SAN's in SSL certs"
