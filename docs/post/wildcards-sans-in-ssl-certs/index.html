@@ -1,0 +1,165 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.20.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Wildcards and SAN&#39;s in SSL certificates &middot; /log/thoughts </title>
+
+  
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/poole.css">
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/syntax.css">
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="/log/thoughts" />
+</head>
+
+	<body class="theme-base-0d">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="//thlog.anfedorov.com/"><h1>/log/thoughts</h1></a>
+      <p class="lead">
+       some silly, some profound 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+        <li><a href="/post/apple-lavabit-legal-intercept/"> Apple, Lavabit, Legal Intercept </a></li>
+      
+        <li><a href="/post/free-basics/"> Free Basics </a></li>
+      
+        <li><a href="/post/guardian-v-whatsapp/"> Guardian v Whatsapp </a></li>
+      
+    </ul>
+
+    <p> </p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Wildcards and SAN&#39;s in SSL certificates</h1>
+			  <span class="post-date">Sat, Jul 18, 2015</span>
+			      
+
+<h3 id="prereqs">Prereqs</h3>
+
+<p>This post assumes you understand the general concepts underlying https and expounds on how certificates specify which domains they validate and summarizes the kind of certifications that Certificate Authorities (CA&rsquo;s) offer.</p>
+
+<h3 id="big-picture-view">Big-picture view</h3>
+
+<p>There are three layers of rules governing how https certs work, set by various standards bodies and private companies:</p>
+
+<ul>
+<li>protocol specs from IETF like <a href="https://tools.ietf.org/html/rfc5246">TLS</a> and <a href="https://tools.ietf.org/html/rfc2818">HTTP over TLS</a>,</li>
+<li>publications of the <a href="https://cabforum.org/">CA/Browser Forum (CABF)</a>, and</li>
+<li>published practices and internal policies specific to a CA.</li>
+</ul>
+
+<p>The first are, for practical purposes, set in stone. The second are agreed upon regularly and evolve with time. The third can be negotiated and changed relatively easily.</p>
+
+<h3 id="ietf-specifications">IETF specifications</h3>
+
+<p>According to the HTTP over TLS spec, certificates can specify the domains they validate to in two ways:</p>
+
+<ul>
+<li>the Common Name (CN) field, and</li>
+<li>the Subject Alternative Names (SAN) extension.</li>
+</ul>
+
+<p>If you look at the certificate issued by google.com, you can see that it contains both:</p>
+
+
+<figure >
+    
+        <img src="/img/wildcards-sans-in-ssl-certs/cert.png" />
+    
+    
+</figure>
+
+
+<p>(and a little further down)</p>
+
+
+<figure >
+    
+        <img src="/img/wildcards-sans-in-ssl-certs/san.png" />
+    
+    
+</figure>
+
+
+<p><a href="https://tools.ietf.org/html/rfc6125#section-6.4.4">RFC6125</a> says the browser MUST NOT check the CN if a SAN is present, but some implementations do anyway. Chrome and Cloudflare follow this requirement and ignore the CN (i.e. they issue a cert error if the domain being validated is listed in the CA but not the SAN), while Safari and curl do not.</p>
+
+<p>The <code>*</code> in <code>*.google.com</code> is a wildcard, and will match any single label before <code>.google.com</code>, such as <code>www.google.com</code> and <code>mail.google.com</code>. It will not match <code>google.com</code>, however, which is listed as a separate SAN entry in the google.com cert, below where the screenshot cuts off.</p>
+
+<h3 id="certificate-authorities-in-practice">Certificate Authorities in Practice</h3>
+
+<p>It costs a lot of money to implement the systems required to be a CA, but the costs of issuing certificates is wholly negligible, and so CA&rsquo;s set their prices based wholly on how many users are willing to pay a certain amount for a kind of certificate.</p>
+
+<p>For an automated verification (e.g. sending an email to admin@foo.com to verify who controls foo.com), the total cost to a CA verifying and issuing a certificate is a fraction of what it costs to print a $1 bill, but it will currently cost you thousands of dollars per year to list as many wildcard entries in the SAN as Google does in their certificate.</p>
+
+<p>As of the July 2015, there appear to be three general categories of certifications that CA&rsquo;s offer publicly:</p>
+
+
+<figure >
+    
+        <img src="/img/wildcards-sans-in-ssl-certs/cost.png" />
+    
+    
+</figure>
+
+
+<p>Where</p>
+
+<ul>
+<li><code>FOO.COM</code> means any Fully-Qualified Domain Name (FQDN), which can include subdomains, like <code>blog.anfedorov.com</code> or <code>big.blog.anfedorov.com</code>,</li>
+<li><code>*.FOO.COM</code> means a domain with a single wildcard character, like <code>*.anfedorov.com</code> or <code>*.sandy.anfedorov.com</code>, and</li>
+<li><code>~</code> means varying within an order of magnitude (e.g. DigiCert offers wildcards for $500/yr).</li>
+</ul>
+
+<p>Wildcards DNS records must have a single <code>*</code> in the leftmost label, so <code>blog.*.anfedorov.com</code> is not allowed. Only one wildcard can be present in a CN or SAN entry (so <code>*.*.foo.com</code> is not allowed). This is not a restriction of TLS [1], but of the rules CA&rsquo;s and browsers agreed on as part of the CA/Browser Forum&rsquo;s <a href="https://cabforum.org/baseline-requirements-documents/">Baseline Requirements</a>.</p>
+
+<p>Wildcards will match any label, so a cert containing <code>*.anfedorov.com</code> will verify <code>mail.anfedorov.com</code> as well as <code>www.anfedorov.com</code>, and <code>*.sandy.anfedorov.com</code> will verify <code>1.sandy.anfedorov.com</code>, <code>2.sandy.anfedorov.com</code>, and so on. Neither of these will match <code>anfedorov.com</code>, however, which needs to be a separate SAN entry or its own domain.</p>
+
+<p>The costs in the table above are taken from the base offers through namecheap.com, which negotiates them on your behalf. The price of a particular cert can factors in some other variables which are used mostly for price discrimination and have little practical significance.</p>
+
+<p>The kind of certificate Google sends users (Multi Domain with wildcards in SAN entries) doesn&rsquo;t appear to be offered publicly by CA&rsquo;s, however at least one (DigiCert) tells me you can combine multiple wildcard certs into one with the domains listed in the SAN&rsquo;s by emailing their support team, i.e. pay them ~$500/year for each wildcard entry in the SAN. Google has their own intermediate cert from the GeoTrust root, so they don&rsquo;t have to pay to issue individual certs.</p>
+
+<p>An alternative to the for-profit-CA business model is being explored by the <a href="https://en.wikipedia.org/wiki/Internet_Security_Research_Group">Internet Security Research Group</a>, a California Benefit Corporation run by a board associated with Mozilla, the EFF, Stanford, and the University of Michigan (as well as Cisco and Akamai). Their project is called <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>, and is scheduled to start giving out free Single Domain and Multi Domain certs later this year.</p>
+
+<p>Please <a href="mailto:me@anfedorov.com">let me know</a> if you spot any errors, outdated info, or omissions in this post. Also, if there is an obvious next topic to cover that isn&rsquo;t linked to from here, or if you have general feedback of any kind.</p>
+
+<p><em>Many thanks to the SSL Support Team at Namecheap for helping me along in figuring this out as well as to Jason Dusek, Christopher Hesse, Adam Pantel, Kamal Marhubi, and Greg Brockman for proofreading and providing feedback / corrections. This post is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</em></p>
+
+<ol>
+<li>Some browsers will even accept a certificate with two wildcards in a SAN name: 
+<figure >
+    
+        <img src="/img/wildcards-sans-in-ssl-certs/two-wildcards.png" />
+    
+    
+</figure>
+</li>
+</ol>
+
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
