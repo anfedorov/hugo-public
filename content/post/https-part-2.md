@@ -12,7 +12,7 @@ From the outside, cryptography is very much like magic. Unlike the magic in Harr
 
 Crypto algorithms can do much more than encrypt things with a password. They can allow you to compare code words with someone without revealing what they are, or allow two people to figure out who holds a bigger number without finding out anything about the other's. We can look at those later. For right now, let's look at the crypto systems behind this green lock:
 
-[![https2.png](https://svbtleusercontent.com/v8t48iigpoxha_small.png)](https://svbtleusercontent.com/v8t48iigpoxha.png)
+{{< figure src="/img/https-part-2/https2.png" >}}
 
 What that lock means is that even if you've never talked with anyone at Amazon, nor communicated with any device controlled by them before, and *even then*, if you talk to Amazon only through a chain of untrusted links, you are assured of two things:
 
@@ -23,13 +23,13 @@ To begin explaining how this is possible, we first need to drill down into two f
 
 ### II. Symmetric Cryptography
 
-[![key.png](https://svbtleusercontent.com/2hwgcd1mtk5iuw_small.png)](https://svbtleusercontent.com/2hwgcd1mtk5iuw.png)
+{{< figure src="/img/https-part-2/key.png" >}}
 
 Symmetric cryptography is the older and simpler of the two. It uses a password to encrypt and decrypt data, where *encrypted* means the information is hidden from anyone without the password. Such encrypted data is called *cyphertext*, and to someone without the key, it's indistinguishable from random noise. Unlike some TV shows might lead you to think, modern encryption with a long password is most likely not breakable in any reasonable amounts of time. This might change with future technologies, but it's definitely unbreakable with today's.
 
 Since the password used is not actually a word or even anything humans ever look at, it's called a "key", instead. When you check your Amazon order history, your computer and Amazon's server have a *shared secret key* that nobody else knows, and encrypting and decrypting things with that keys is very fast.
 
-[![sym.png](https://svbtleusercontent.com/izrwiard9u4h1a_small.png)](https://svbtleusercontent.com/izrwiard9u4h1a.png)
+{{< figure src="/img/https-part-2/sym.png" >}}
 
 As we pointed out in the first post, the connection to Amazon is going through a chain of other not-necessarily-trusted computers. So how do you share that key and still keep it secret?
 
@@ -41,23 +41,23 @@ While this makes sure that your computer is talking over a channel secure from e
 
 Asymmetric cryptography uses pairs of keys that have a special bond. One is the *private key* that you keep secret (like a password). The other, which is generated from the first, is called the "public key" and you give it to anyone who wants it.
 
-[![pripub.png](https://svbtleusercontent.com/yv0df3gfliofdq_small.png)](https://svbtleusercontent.com/yv0df3gfliofdq.png)
+{{< figure src="/img/https-part-2/pripub.png" >}}
 
 Their bond makes two algorithms possible:
 
 *Asymmetric encryption* uses the public key to encrypt some data which only the private key can decrypt.
 
-[![asymenc.png](https://svbtleusercontent.com/smfvqpesciaj7q_small.png)](https://svbtleusercontent.com/smfvqpesciaj7q.png)
+{{< figure src="/img/https-part-2/asymenc.png" >}}
 
 *Signing* uses the private key and a message to generate a signature that can be verified as legitimate using the public key.
 
-[![asycsig.png](https://svbtleusercontent.com/tlppnjbydsk89a_small.png)](https://svbtleusercontent.com/tlppnjbydsk89a.png)
+{{< figure src="/img/https-part-2/asycsig.png" >}}
 
 These operations are quite a bit slower than symmetric encryption, but can be quite useful in a pinch.
 
 Since public keys can themselves be part of a message, one can somewhat cleverly use the private key of one pair to sign the public key of another:
 
-[![key-legit.png](https://svbtleusercontent.com/bc9h9fkvolbduq_small.png)](https://svbtleusercontent.com/bc9h9fkvolbduq.png)
+{{< figure src="/img/https-part-2/key-legit.png" >}}
 
 This is generally called "key signing", and if you have the public part of the signing pair, you can then verify the signed key as legitimate. Combining multiple pairs in this way is used to create chains of signatures, each valid for signing less than the one before it.
 
@@ -65,6 +65,6 @@ The signature can be bundled with extra data like expiration dates in a format c
 
 ### IV. Back to the real world
 
-This part explained the building blocks that our mathematicians provide our software. The third part will combine those blocks with the real world. If you'd like to learn about a business with better profit margins than printing $100 bills, read on to [Part 3: The Real World](https://svbtle.com/https-part-3) (coming soon!).
+This part explained the building blocks that our mathematicians provide our software. The third part will combine those blocks with the real world. If you'd like to learn about a business with better profit margins than printing $100 bills, read on to [Part 3: The Real World](mailto:me@anfedorov.com) (coming soon!).
 
 *Many thanks to Aagje van der Meer for proofreading and providing feedback on drafts of this post. The contents of this post are licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).*
