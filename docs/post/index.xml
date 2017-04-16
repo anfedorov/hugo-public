@@ -78,6 +78,16 @@ todo.add(&#39;learn how the VPN wizardry works&#39;)</description>
     </item>
     
     <item>
+      <title>Part 2: Crypto Magic</title>
+      <link>//thlog.anfedorov.com/post/https-part-2/</link>
+      <pubDate>Sat, 25 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/https-part-2/</guid>
+      <description>This piece is part 2 of a series about cryptography on the web. It outlines the building blocks, following up the first part, which explained why cryptography on the internet is needed in the first place.
+I. Overview From the outside, cryptography is very much like magic. Unlike the magic in Harry Potter which mostly works with things, however, cryptography works with data. Admittedly, that&amp;rsquo;s not as cool, but it is real and used billions of times a day all around you.</description>
+    </item>
+    
+    <item>
       <title>Part 1: Chinese Whispers</title>
       <link>//thlog.anfedorov.com/post/https-part-1/</link>
       <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
@@ -85,16 +95,6 @@ todo.add(&#39;learn how the VPN wizardry works&#39;)</description>
       <guid>//thlog.anfedorov.com/post/https-part-1/</guid>
       <description>This piece is the start of a series on cryptography on the web. It explains the reasons we need encryption on the web, and Part 2 explains the basic building blocks used.
 I. Behind the Curtain  If you type amazon.com into your browser, your computer reaches out to another computer owned by Amazon, which sends back a bunch of code describing what to draw on your screen and what to do when you click and type into the window.</description>
-    </item>
-    
-    <item>
-      <title>Part 2: Crypto Magic</title>
-      <link>//thlog.anfedorov.com/post/https-part-2/</link>
-      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>//thlog.anfedorov.com/post/https-part-2/</guid>
-      <description>This piece is part 2 of a series about cryptography on the web. It outlines the building blocks, following up the first part, which explained why cryptography on the internet is needed in the first place.
-I. Overview From the outside, cryptography is very much like magic. Unlike the magic in Harry Potter which mostly works with things, however, cryptography works with data. Admittedly, that&amp;rsquo;s not as cool, but it is real and used billions of times a day all around you.</description>
     </item>
     
     <item>
