@@ -2,7 +2,7 @@
 date = "2017-02-01"
 menu = "main"
 title = "The Guardian v WhatsApp"
-linktitle = "guardian-v-whatsapp"
+linktitle = "Guardian v Whatsapp"
 +++
 
 ### What happened?
