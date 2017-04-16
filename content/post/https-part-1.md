@@ -1,5 +1,5 @@
 +++
-date = "2015-10-11"
+date = "2015-07-18"
 title = "Part 1: Chinese Whispers"
 linktitle = "https-part-1"
 +++
@@ -8,7 +8,7 @@ linktitle = "https-part-1"
 
 ### I. Behind the Curtain
 
-[![amazon.png](https://svbtleusercontent.com/ytg2cdnqkfd2ea_small.png)](https://svbtleusercontent.com/ytg2cdnqkfd2ea.png)
+{{< figure src="/img/https-part-1/amazon.png" >}}
 
 If you type amazon.com into your browser, your computer reaches out to another computer owned by Amazon, which sends back a bunch of code describing what to draw on your screen and what to do when you click and type into the window.
 
@@ -16,7 +16,7 @@ But even though they're communicating, your computer isn't talking directly to A
 
 The exact route taken by your messages depends on the networks layouts, congestion, and peering agreements between dozens of companies. The `traceroute` command in a terminal can tell you some of the hops likely to be taken by a connection, and on my connection right now, it looks like Amazon has a peering agreement with Comcast, since their networks are right next to each other:
 
-[![tracerouts.png](https://svbtleusercontent.com/psawrcaexinzbq_small.png)](https://svbtleusercontent.com/psawrcaexinzbq.png)
+{{< figure src="/img/https-part-1/tracerouts.png" >}}
 
 (to find out `72.21.221.194` belongs to Amazon, I used the `whois` command)
 
@@ -28,7 +28,7 @@ In many parts of the world, state agencies either [blatantly control](https://en
 
 Without extra systems in place, we can't even be sure that page you load is coming from Amazon at all. Maybe your friend who owns the router likes to joke around, [took control of it](https://www.dd-wrt.com/site/), and programmed it to respond "yup, just talked to Amazon, and it says they only sells goats now". There is absolutely no way for your computer to know any better.
 
-[![amazon-goat.png](https://svbtleusercontent.com/bf6iik9lanneq_small.png)](https://svbtleusercontent.com/bf6iik9lanneq.png)
+{{< figure src="/img/https-part-1/amazon.png" >}}
 
 Even pranks aside, absolutely anyone can give a wifi network the name of one you trust, and your computer will connect to whatever router has the strongest signal. Like most technology, wifi is built with assumptions of implicit trust, which are reconsidered one at a time as attacks become obvious or are uncovered in the wild.
 
@@ -46,7 +46,7 @@ Even if you are not any of these, as most people aren't, it is vital for the fun
 
 Fortunately, this is a problem which already has a mostly effective, if not perfect, solution on the web (although Amazon has yet to turn it on for the front page).
 
-[![https.png](https://svbtleusercontent.com/3hmdccudmwm9g_small.png)](https://svbtleusercontent.com/3hmdccudmwm9g.png)
+{{< figure src="/img/https-part-1/https.png" >}}
 
 The little green lock in the address bar means that several cryptographic systems are verifying two things:
 

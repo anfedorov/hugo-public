@@ -1,5 +1,5 @@
 +++
-date = "2015-10-11"
+date = "2015-07-18"
 title = "Part 2: Crypto Magic"
 linktitle = "https-part-2"
 +++
