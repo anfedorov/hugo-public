@@ -2,7 +2,7 @@
 date = "2015-07-18"
 menu = "main"
 title = "Wildcards and SAN's in SSL certificates"
-linktitle = "Free Basics"
+linktitle = "Wildcards and SAN's in SSL certs"
 +++
 
 ### Prereqs

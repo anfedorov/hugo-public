@@ -1,0 +1,129 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.20.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Part 1: Chinese Whispers &middot; /log/thoughts </title>
+
+  
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/poole.css">
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/syntax.css">
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="/log/thoughts" />
+</head>
+
+	<body class="theme-base-0d">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="//thlog.anfedorov.com/"><h1>/log/thoughts</h1></a>
+      <p class="lead">
+       some silly, some profound 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+        <li><a href="/post/guardian-v-whatsapp/"> guardian-v-whatsapp </a></li>
+      
+        <li><a href="/post/wildcards-sans-in-ssl-certs/"> Wildcards and SAN&#39;s in SSL certs </a></li>
+      
+        <li><a href="/post/free-basics/"> Free Basics </a></li>
+      
+        <li><a href="/post/apple-lavabit-legal-intercept/"> Apple, Lavabit, Legal Intercept </a></li>
+      
+    </ul>
+
+    <p> </p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Part 1: Chinese Whispers</h1>
+			  <span class="post-date">Sun, Oct 11, 2015</span>
+			      
+
+<p><em>This piece is the start of a series on cryptography on the web. It explains the reasons we need encryption on the web, and <a href="/post/https-part-2">Part 2</a> explains the basic building blocks used.</em></p>
+
+<h3 id="i-behind-the-curtain">I. Behind the Curtain</h3>
+
+<p><a href="https://svbtleusercontent.com/ytg2cdnqkfd2ea.png"><img src="https://svbtleusercontent.com/ytg2cdnqkfd2ea_small.png" alt="amazon.png" /></a></p>
+
+<p>If you type amazon.com into your browser, your computer reaches out to another computer owned by Amazon, which sends back a bunch of code describing what to draw on your screen and what to do when you click and type into the window.</p>
+
+<p>But even though they&rsquo;re communicating, your computer isn&rsquo;t talking directly to Amazon&rsquo;s. It might be accessing the internet by connecting your school&rsquo;s or work place&rsquo;s wifi router, which is probably wired to a modem accessing a network controlled by an ISP (like Cablevision or Comcast), which could in turn is connected to a computer actually controlled by Amazon.</p>
+
+<p>The exact route taken by your messages depends on the networks layouts, congestion, and peering agreements between dozens of companies. The <code>traceroute</code> command in a terminal can tell you some of the hops likely to be taken by a connection, and on my connection right now, it looks like Amazon has a peering agreement with Comcast, since their networks are right next to each other:</p>
+
+<p><a href="https://svbtleusercontent.com/psawrcaexinzbq.png"><img src="https://svbtleusercontent.com/psawrcaexinzbq_small.png" alt="tracerouts.png" /></a></p>
+
+<p>(to find out <code>72.21.221.194</code> belongs to Amazon, I used the <code>whois</code> command)</p>
+
+<p>All these computers are playing a well practiced game of <a href="https://en.wikipedia.org/wiki/Chinese_whispers">Chinese Whispers</a>, where everyone is really, <em>really</em> careful not to make mistakes [1]. The protocol, or language, that computers use to talk to each other through intermediaries on the internet is called the <a href="https://en.wikipedia.org/wiki/Internet_Protocol">Internet Protocol (IP)</a> and can allow trillions of computers to talk with each other. It&rsquo;s truly one of the great wonders of the technical world.</p>
+
+<p>Even if every intermediary triple checks everything, however, and even if all mistakes are corrected, can we really trust every link in the chain to behave honorably? There are hundreds if not thousands of people with access to this chain who could introduce a bug, whether by accident, or by coercion, or by choice, into systems that not a lot of people can check and even fewer do.</p>
+
+<p>In many parts of the world, state agencies either <a href="https://en.wikipedia.org/wiki/Golden_Shield_Project">blatantly control</a> or <a href="https://en.wikipedia.org/wiki/Room_641A">secretly snoop</a> on the links. While most governments do not admit it publicly, it&rsquo;s likely that most intelligence agencies in the world who can afford it have similar access.</p>
+
+<p>Without extra systems in place, we can&rsquo;t even be sure that page you load is coming from Amazon at all. Maybe your friend who owns the router likes to joke around, <a href="https://www.dd-wrt.com/site/">took control of it</a>, and programmed it to respond &ldquo;yup, just talked to Amazon, and it says they only sells goats now&rdquo;. There is absolutely no way for your computer to know any better.</p>
+
+<p><a href="https://svbtleusercontent.com/bf6iik9lanneq.png"><img src="https://svbtleusercontent.com/bf6iik9lanneq_small.png" alt="amazon-goat.png" /></a></p>
+
+<p>Even pranks aside, absolutely anyone can give a wifi network the name of one you trust, and your computer will connect to whatever router has the strongest signal. Like most technology, wifi is built with assumptions of implicit trust, which are reconsidered one at a time as attacks become obvious or are uncovered in the wild.</p>
+
+<h3 id="ii-a-serious-problem">II. A Serious Problem</h3>
+
+<p>For the majority of people using the internet most of the time, this chain of trust works fine, but for a small and very important subset of people and uses, it is not. For example:</p>
+
+<ul>
+<li>an activist or politician looks at her Amazon reading list in a coffee shop</li>
+<li>the plaintiff to a class action suit emails with his lawyer from the library</li>
+<li>a lawyer connects to his foreign hotel wifi to discuss a negotiation</li>
+</ul>
+
+<p>Even if you are not any of these, as most people aren&rsquo;t, it is vital for the functioning of nations of laws that more security exists by default for everyone. Even if hacking your email is not valuable to anyone today, it&rsquo;s hard to predict when it might be in the future. People&rsquo;s default security levels affect the fundamental fabric of which our society is built.</p>
+
+<h3 id="iii-a-wild-cryptomage-appears">III. A Wild Cryptomage Appears</h3>
+
+<p>Fortunately, this is a problem which already has a mostly effective, if not perfect, solution on the web (although Amazon has yet to turn it on for the front page).</p>
+
+<p><a href="https://svbtleusercontent.com/3hmdccudmwm9g.png"><img src="https://svbtleusercontent.com/3hmdccudmwm9g_small.png" alt="https.png" /></a></p>
+
+<p>The little green lock in the address bar means that several cryptographic systems are verifying two things:</p>
+
+<ul>
+<li>you are actually talking to Amazon, even if it&rsquo;s the first time you&rsquo;ve ever visited their site on this computer, and</li>
+<li>nobody routing the connection knows what was said, even if they&rsquo;ve passed on every word [2].</li>
+</ul>
+
+<p>To learn what building blocks make up these systems, venture onwards to <a href="https://blog.anfedorov.com/https-part-2">Part 2: Crypto Magic</a>.</p>
+
+<p><em>Many thanks to Jeff Maxim and Joyce C. Clanon for proofreading and providing feedback on drafts of this post. All questions, corrections, and random thoughts <a href="mailto:me@anfedorov.com">are welcome</a>. The contents of this post are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</em></p>
+
+<ol>
+<li><p>There are many <a href="https://en.wikipedia.org/wiki/Error_detection_and_correction#Error_detection_schemes">error detection schemes</a> to choose from, and the most effective one depends mostly on the type of connection.</p></li>
+
+<li><p>Those routing the connection will know metadata like <em>how much</em> was said and <em>between whom</em>, however.</p></li>
+</ol>
+
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>

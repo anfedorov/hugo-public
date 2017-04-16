@@ -1,35 +1,70 @@
 +++
 date = "2015-10-11"
-title = "Judicial Side Doors and Single User Encryption"
-linktitle = "single-user-encryption"
+title = "Part 2: Crypto Magic"
+linktitle = "https-part-2"
 +++
 
-## In Theory
+*This piece is part 2 of a series about cryptography on the web. It outlines the building blocks, following up [the first part](/post/https-part-1), which explained why cryptography on the internet is needed in the first place.*
 
-Bruce Schneier [writes](https://www.schneier.com/blog/archives/2015/09/tsa_master_keys.html):
+### I. Overview
 
-> Someone recently noticed a Washington Post story on the TSA that originally contained a detailed photograph of all the TSA master keys. [...] The whole thing neatly illustrates one of the main problems with backdoors, whether in cryptographic systems or physical systems: they're fragile.
+From the outside, cryptography is very much like magic. Unlike the magic in Harry Potter which mostly works with *things*, however, cryptography works with *data*. Admittedly, that's not as cool, but it is real and used billions of times a day all around you. Most importantly, you can actually learn it and use it yourself.
 
-Except in the case of cryptographic systems like full-disk-encryption, they are not. In the TSA baggage key scenario, a copy of the physical master key need to be present wherever baggage is screened. In the cryptographic realm, it's possible to send a "lock" to the secure location of the master key, decrypt it, and send it back opened. Only one copy of the master key ever needs to exist, and so it's intrinsically a simpler system to protect.
+Crypto algorithms can do much more than encrypt things with a password. They can allow you to compare code words with someone without revealing what they are, or allow two people to figure out who holds a bigger number without finding out anything about the other's. We can look at those later. For right now, let's look at the crypto systems behind this green lock:
 
-There are many considerations to be had in the debate about full disk encryption, but the [oft-repeated argument](https://www.eff.org/deeplinks/2015/08/it-again-law-enforcement-officials-anti-encryption-new-york-times-op-ed) that it is impossible to have a secure backdoor accessible only via lawful judicial orders does not strike me as very persuasive. One does not need to look far to find secure backdoors [built into full disk encryption](https://secure2.sophos.com/en-us/lp/sem/enterprise-encryption-trial.aspx):
+[![https2.png](https://svbtleusercontent.com/v8t48iigpoxha_small.png)](https://svbtleusercontent.com/v8t48iigpoxha.png)
 
-> We chose to pay for Sophos encryption because of its better administration and data recovery options, even though we have free access to BitLocker via our Microsoft Campus Licensing Agreement.
+What that lock means is that even if you've never talked with anyone at Amazon, nor communicated with any device controlled by them before, and *even then*, if you talk to Amazon only through a chain of untrusted links, you are assured of two things:
 
-What are "data recovery options"? That's another name for a legal side door, and I would wager that among corporations with the resources to administer them, most laptops have it enabled, even if they contain the keys used to access production systems storing sensitive user data.
+  - that your computer is talking to Amazon, and
+  - that no intermediary in the chain connecting you knows what is said.
 
-Just because side doors can be secure does not mean we should legally mandate them, however. A more convincing argument is that legislating away phones or computers running one algorithm or another is simply infeasible in the real world.
+To begin explaining how this is possible, we first need to drill down into two fundamental building blocks of crypto: symmetric and asymmetric cryptography.
 
-## In the Real World
+### II. Symmetric Cryptography
 
-Let's say a law was passed in the US prohibiting encryption with single-user access, and I was coming back from Russia or China with a smart phone I bought there, where it's legal. Would the border agent tell me "sorry, your phone is too secure to be allowed into America"? That seems unlikely.
+[![key.png](https://svbtleusercontent.com/2hwgcd1mtk5iuw_small.png)](https://svbtleusercontent.com/2hwgcd1mtk5iuw.png)
 
-Then there appear to be two alternatives: either (1) people can bring into the US more secure devices than can be legally bought here, or (2) US law enforcement can keep developing methods for preventing, finding, and prosecuting crime in the world we find ourselves in today, one where many people, not just those with extraordinary resources, carry devices that only they can access.
+Symmetric cryptography is the older and simpler of the two. It uses a password to encrypt and decrypt data, where *encrypted* means the information is hidden from anyone without the password. Such encrypted data is called *cyphertext*, and to someone without the key, it's indistinguishable from random noise. Unlike some TV shows might lead you to think, modern encryption with a long password is most likely not breakable in any reasonable amounts of time. This might change with future technologies, but it's definitely unbreakable with today's.
 
-What kind of effect will these options have on the systems of criminals and law enforcement (LE)?
+Since the password used is not actually a word or even anything humans ever look at, it's called a "key", instead. When you check your Amazon order history, your computer and Amazon's server have a *shared secret key* that nobody else knows, and encrypting and decrypting things with that keys is very fast.
 
-Creating a two tiers of "foreign devices with single-user encryption" and "American devices with a judicial master key" will definitely make some criminals easier to prosecute. Unplanned crimes of passion or those committed by low-resource individuals and will be easier to solve. These cases might keep LE busy and getting promotions, while criminals who have training or resources will naturally get less attention solely because it's harder to prosecute them. Especially egregious resourceful criminals will still be worth the trouble, but there will be a large class of slightly smarter criminals who are simply not worth the trouble when simpler cases abound.
+[![sym.png](https://svbtleusercontent.com/izrwiard9u4h1a_small.png)](https://svbtleusercontent.com/izrwiard9u4h1a.png)
 
-On the other hand, making the default phone a strongly encrypted device [seems scary](https://www.nytimes.com/2015/08/12/opinion/apple-google-when-phone-encryption-blocks-justice.html). Let's think about it in the long term, though. Making it cheaper to be a sophisticated criminal actually weakens the power of criminals with resources, since LE will choose which cases to pursue based more on the severity of the crime, and less on who is the easier target. More LE resources will be devoted to finding informants, turning conspirators, and infiltrating gangs, not simply prosecuting anyone who had an unecrypted phone full of incriminating evidence.
+As we pointed out in the first post, the connection to Amazon is going through a chain of other not-necessarily-trusted computers. So how do you share that key and still keep it secret?
 
-While the short term is less certain, imagining these two possible long-term futures, there appears to me little ambiguity as to which is preferable. The important question to answer is "when?", and considering the state we find ourselves in presently, the answer might very well be "now".
+The short answer is simply "math". It's not proven beyond all possibility, but as far as we can tell, there's an algorithm that would let you and your friend shout a few big numbers at each other across a crowded room and come up with a shared secret that nobody else knows, even if they've heard every word. That's what computers around the world do billions of times a day and it's called the [Diffie–Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) (or DH for short).
+
+While this makes sure that your computer is talking over a channel secure from eavesdroppers, it still does not authenticate *whom* it's actually talking to. For that, we need another kind of cryptography.
+
+### III. Asymmetric Cryptography
+
+Asymmetric cryptography uses pairs of keys that have a special bond. One is the *private key* that you keep secret (like a password). The other, which is generated from the first, is called the "public key" and you give it to anyone who wants it.
+
+[![pripub.png](https://svbtleusercontent.com/yv0df3gfliofdq_small.png)](https://svbtleusercontent.com/yv0df3gfliofdq.png)
+
+Their bond makes two algorithms possible:
+
+*Asymmetric encryption* uses the public key to encrypt some data which only the private key can decrypt.
+
+[![asymenc.png](https://svbtleusercontent.com/smfvqpesciaj7q_small.png)](https://svbtleusercontent.com/smfvqpesciaj7q.png)
+
+*Signing* uses the private key and a message to generate a signature that can be verified as legitimate using the public key.
+
+[![asycsig.png](https://svbtleusercontent.com/tlppnjbydsk89a_small.png)](https://svbtleusercontent.com/tlppnjbydsk89a.png)
+
+These operations are quite a bit slower than symmetric encryption, but can be quite useful in a pinch.
+
+Since public keys can themselves be part of a message, one can somewhat cleverly use the private key of one pair to sign the public key of another:
+
+[![key-legit.png](https://svbtleusercontent.com/bc9h9fkvolbduq_small.png)](https://svbtleusercontent.com/bc9h9fkvolbduq.png)
+
+This is generally called "key signing", and if you have the public part of the signing pair, you can then verify the signed key as legitimate. Combining multiple pairs in this way is used to create chains of signatures, each valid for signing less than the one before it.
+
+The signature can be bundled with extra data like expiration dates in a format called X.509. This bundle of {explanation, public key, signature} is then called a "certificate". Using certificates, we can build a more trustworthy chain to verify that we really are talking to Amazon.
+
+### IV. Back to the real world
+
+This part explained the building blocks that our mathematicians provide our software. The third part will combine those blocks with the real world. If you'd like to learn about a business with better profit margins than printing $100 bills, read on to [Part 3: The Real World](https://svbtle.com/https-part-3) (coming soon!).
+
+*Many thanks to Aagje van der Meer for proofreading and providing feedback on drafts of this post. The contents of this post are licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).*
