@@ -1,8 +1,8 @@
 +++
 date = "2015-07-18"
 menu = "main"
-title = "Part 1: Chinese Whispers"
-linktitle = "https-part-1"
+title = "HTTPS Part 1: Chinese Whispers"
+linktitle = "HTTPS Part 1"
 +++
 
 *This piece is the start of a series on cryptography on the web. It explains the reasons we need encryption on the web, and [Part 2](/post/https-part-2) explains the basic building blocks used.*

@@ -2,7 +2,7 @@
 date = "2015-07-25"
 menu = "main"
 title = "Part 2: Crypto Magic"
-linktitle = "https-part-2"
+linktitle = "HTTPS Part 2"
 +++
 
 *This piece is part 2 of a series about cryptography on the web. It outlines the building blocks, following up [the first part](/post/https-part-1), which explained why cryptography on the internet is needed in the first place.*
