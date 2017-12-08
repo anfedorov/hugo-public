@@ -54,7 +54,7 @@ The little green lock in the address bar means that several cryptographic system
   - you are actually talking to Amazon, even if it's the first time you've ever visited their site on this computer, and
   - nobody routing the connection knows what was said, even if they've passed on every word [2].
 
-To learn what building blocks make up these systems, venture onwards to [Part 2: Crypto Magic](https://blog.anfedorov.com/https-part-2).
+To learn what building blocks make up these systems, venture onwards to [Part 2: Crypto Magic](/post/https-part-2).
 
 *Many thanks to Jeff Maxim and Joyce C. Clanon for proofreading and providing feedback on drafts of this post. All questions, corrections, and random thoughts [are welcome](mailto:me@anfedorov.com). The contents of this post are licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).*
 
