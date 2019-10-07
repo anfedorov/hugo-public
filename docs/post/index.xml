@@ -6,11 +6,20 @@
     <description>Recent content in Posts on /log/thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright> </copyright>
-    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="//thlog.anfedorov.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Towards a Layperson&#39;s Security</title>
+      <link>//thlog.anfedorov.com/post/laypersons-security-framework/</link>
+      <pubDate>Sun, 06 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>//thlog.anfedorov.com/post/laypersons-security-framework/</guid>
+      <description>Overview As techincal breaches and vulnerabilities are in the news nearly every day, getting no less sinister, and the US Presidential elections are beginning to heat up. Looking backwards, much of the Mueller Report appears unabsorbed by folks who either should or need to know better, and instead the propagation of an increasing amount of tough-to-explain information which confuses and contradicts a reasoned understanding of the security landscape.
+To help, I&amp;rsquo;ll present a simple security model for non-technical folk, for use both in one&amp;rsquo;s political and private life, drawn from personal experience and public information.</description>
+    </item>
     
     <item>
       <title>The Guardian v WhatsApp</title>
@@ -70,10 +79,10 @@ Apple Apple says they couldn&amp;rsquo;t comply with a wiretap order on iMessage
       <guid>//thlog.anfedorov.com/post/vpns-webrtc/</guid>
       <description>A curious demo where a web server sends you JS that sends back your internal network IP address via the STUN protocol intended to work around the structure of NAT&amp;rsquo;s for peer-to-peer connections. What does that leak about a VPN connection?
 Over PPTP:
- Well, that&amp;rsquo;s worrying.
+  Well, that&amp;rsquo;s worrying.
 What about over L2TP?
- hm&amp;hellip; and over OpenVPN?
- Well, that&amp;rsquo;s somewhat comforting, at least.
+  hm&amp;hellip; and over OpenVPN?
+  Well, that&amp;rsquo;s somewhat comforting, at least.
 todo.add(&#39;learn how the VPN wizardry works&#39;)</description>
     </item>
     
@@ -94,7 +103,7 @@ I. Overview From the outside, cryptography is very much like magic. Unlike the m
       
       <guid>//thlog.anfedorov.com/post/https-part-1/</guid>
       <description>This piece is the start of a series on cryptography on the web. It explains the reasons we need encryption on the web, and Part 2 explains the basic building blocks used.
-I. Behind the Curtain  If you type amazon.com into your browser, your computer reaches out to another computer owned by Amazon, which sends back a bunch of code describing what to draw on your screen and what to do when you click and type into the window.</description>
+I. Behind the Curtain   If you type amazon.com into your browser, your computer reaches out to another computer owned by Amazon, which sends back a bunch of code describing what to draw on your screen and what to do when you click and type into the window.</description>
     </item>
     
     <item>

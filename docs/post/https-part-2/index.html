@@ -3,7 +3,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.20.1" />
+  <meta name="generator" content="Hugo 0.58.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -73,12 +73,8 @@
 
 <p>Crypto algorithms can do much more than encrypt things with a password. They can allow you to compare code words with someone without revealing what they are, or allow two people to figure out who holds a bigger number without finding out anything about the other&rsquo;s. We can look at those later. For right now, let&rsquo;s look at the crypto systems behind this green lock:</p>
 
-
-<figure >
-    
-        <img src="/img/https-part-2/https2.png" />
-    
-    
+<figure>
+    <img src="/img/https-part-2/https2.png"/> 
 </figure>
 
 
@@ -93,12 +89,8 @@
 
 <h3 id="ii-symmetric-cryptography">II. Symmetric Cryptography</h3>
 
-
-<figure >
-    
-        <img src="/img/https-part-2/key.png" />
-    
-    
+<figure>
+    <img src="/img/https-part-2/key.png"/> 
 </figure>
 
 
@@ -106,12 +98,8 @@
 
 <p>Since the password used is not actually a word or even anything humans ever look at, it&rsquo;s called a &ldquo;key&rdquo;, instead. When you check your Amazon order history, your computer and Amazon&rsquo;s server have a <em>shared secret key</em> that nobody else knows, and encrypting and decrypting things with that keys is very fast.</p>
 
-
-<figure >
-    
-        <img src="/img/https-part-2/sym.png" />
-    
-    
+<figure>
+    <img src="/img/https-part-2/sym.png"/> 
 </figure>
 
 
@@ -125,12 +113,8 @@
 
 <p>Asymmetric cryptography uses pairs of keys that have a special bond. One is the <em>private key</em> that you keep secret (like a password). The other, which is generated from the first, is called the &ldquo;public key&rdquo; and you give it to anyone who wants it.</p>
 
-
-<figure >
-    
-        <img src="/img/https-part-2/pripub.png" />
-    
-    
+<figure>
+    <img src="/img/https-part-2/pripub.png"/> 
 </figure>
 
 
@@ -138,23 +122,15 @@
 
 <p><em>Asymmetric encryption</em> uses the public key to encrypt some data which only the private key can decrypt.</p>
 
-
-<figure >
-    
-        <img src="/img/https-part-2/asymenc.png" />
-    
-    
+<figure>
+    <img src="/img/https-part-2/asymenc.png"/> 
 </figure>
 
 
 <p><em>Signing</em> uses the private key and a message to generate a signature that can be verified as legitimate using the public key.</p>
 
-
-<figure >
-    
-        <img src="/img/https-part-2/asycsig.png" />
-    
-    
+<figure>
+    <img src="/img/https-part-2/asycsig.png"/> 
 </figure>
 
 
@@ -162,12 +138,8 @@
 
 <p>Since public keys can themselves be part of a message, one can somewhat cleverly use the private key of one pair to sign the public key of another:</p>
 
-
-<figure >
-    
-        <img src="/img/https-part-2/key-legit.png" />
-    
-    
+<figure>
+    <img src="/img/https-part-2/key-legit.png"/> 
 </figure>
 
 
