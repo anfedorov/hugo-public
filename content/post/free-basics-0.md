@@ -1,7 +1,6 @@
 +++
 date = "2015-12-28T11:33:01-08:00"
 title = "The Economics and Politics of Free Basics"
-
 +++
 
 Facebook's Internet.org brand is [starting to go away](http://www.wired.com/2015/09/facebook-renames-controversial-internet-org-app/). Good. The initiative is not the internet and it's not a non-profit organization. It is [the "free" model](http://geekandpoke.typepad.com/geekandpoke/2010/12/the-free-model.html) applied to a curated micro-network like the earlier incarnations of AOL, and it's now called Free Basics. This is a significantly more honest name, and for that, Facebook deserves credit. Honest PR is good PR because it allows us to move past semantics and into the politics and economics of the project.

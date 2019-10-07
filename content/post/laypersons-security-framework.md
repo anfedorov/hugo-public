@@ -1,4 +1,7 @@
-# Towards a Layperson's Security
++++
+date = "2019-10-06"
+title = "Towards a Layperson's Security"
++++
 
 ## Overview
 
