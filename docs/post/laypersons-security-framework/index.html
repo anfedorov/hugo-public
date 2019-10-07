@@ -1,0 +1,142 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Towards a Layperson&#39;s Security &middot; /log/thoughts </title>
+
+  
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/poole.css">
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/syntax.css">
+  <link rel="stylesheet" href="//thlog.anfedorov.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="/log/thoughts" />
+</head>
+
+	<body class="theme-base-0d">
+		<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="//thlog.anfedorov.com/"><h1>/log/thoughts</h1></a>
+      <p class="lead">
+       some silly, some profound 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+        <li><a href="/post/apple-lavabit-legal-intercept/"> Apple, Lavabit, Legal Intercept </a></li>
+      
+        <li><a href="/post/free-basics/"> Free Basics </a></li>
+      
+        <li><a href="/post/guardian-v-whatsapp/"> Guardian v Whatsapp </a></li>
+      
+        <li><a href="/post/https-part-1/"> HTTPS Part 1 </a></li>
+      
+        <li><a href="/post/https-part-2/"> HTTPS Part 2 </a></li>
+      
+        <li><a href="/post/re-judicial-side-doors/"> Single User Encryption </a></li>
+      
+        <li><a href="/post/vpns-webrtc/"> VPN and WebRTC </a></li>
+      
+        <li><a href="/post/wildcards-sans-in-ssl-certs/"> Wildcards and SAN&#39;s in SSL certs </a></li>
+      
+    </ul>
+
+    <p> </p>
+  </div>
+</div>
+
+
+		<div class="content container">
+			<div class="post">
+			 	<h1>Towards a Layperson&#39;s Security</h1>
+			  <span class="post-date">Sun, Oct 6, 2019</span>
+			      
+
+<h2 id="overview">Overview</h2>
+
+<p>As techincal breaches and vulnerabilities are in the news nearly every day, getting <a href="https://www.propublica.org/article/the-new-target-that-enables-ransomware-hackers-to-paralyze-dozens-of-towns-and-businesses-at-once">no less sinister</a>, and the US Presidential elections are beginning to heat up. Looking backwards, much of the Mueller Report appears unabsorbed by folks who either should or need to know better, and instead the propagation of an increasing amount of tough-to-explain information which confuses and contradicts a reasoned understanding of the security landscape.</p>
+
+<p>To help, I&rsquo;ll present a simple security model for non-technical folk, for use both in one&rsquo;s political and private life, drawn from personal experience and public information. A snoopy reader may find I have &ldquo;Security Engineer&rdquo; in my title these days, but this is all drawn from public information and none of this is the opinion of any employers past or present.</p>
+
+<p>Let&rsquo;s dive in. First, an overview of three core pieces to security:</p>
+
+<p>1) <strong>Security Players</strong> are (a) <em>Threat Actors</em>, who seek in some way to harm you or your mission using some technical exploit, and (b) <em>Security Partners</em>, who seek to frustrate those efforts or help you by providing services whose security matches your understanding of them,</p>
+
+<p>2) <strong>Maturity Behaviors</strong> are habits you can learn to work better with Security Actors and reduce the risk of a Threat Actor succeeding in their goal, and</p>
+
+<p>3) <strong>Security Frameworks</strong> are ways you choose to combine your behaviors with personal life decisions to achieve your mission.</p>
+
+<p>While &ldquo;leveling up&rdquo; your maturity helps against a somewhat abstract notion of cyber attackers, it also helps you keep things in order (e.g. passwords) that will greatly help even in your day-to-day life.</p>
+
+<h2 id="threat-tiers">Threat Tiers</h2>
+
+<p>The multitudes of Threat Actors and the resources available to them vary drastically, and so it helps to create a spectrum with four coarse categories:</p>
+
+<p><strong>Tier 4</strong> actors are marginally technical, have significant time to spend, and are OK at using it to find something embarassing or otherwise exploitable about you and further their goals. They might find your address and <a href="https://en.wikipedia.org/wiki/Doxing">dox</a> or <a href="https://en.wikipedia.org/wiki/Swatting">swat</a> you, attempt to shame you by scrutanizing your public records or things you&rsquo;ve written, or try to guess your email password reset questions.</p>
+
+<p>It&rsquo;s important not to discount these methods as &ldquo;not real hacking&rdquo;. While they aren&rsquo;t sophisticated, there are <em>a lot</em> of opportunities (a large &ldquo;attack surface&rdquo;), and they are very cheap and <a href="https://www.telegraph.co.uk/news/worldnews/sarah-aalin/7750050/Sarah-Palin-vs-the-hacker.html">enormously successful with miniscule effort</a>. The IRA activity <a href="https://www.brookings.edu/blog/order-from-chaos/2019/04/18/what-the-mueller-report-tells-us-about-russian-influence-operations/">described by Mueller&rsquo;s team</a> included a $35 million disinformation, influence, and suppression campaigns to influence the 2016 election exclusively at this tier.</p>
+
+<p><strong>Tier 3</strong> actors take a big leap in dedication and technical sophistication. Often they are not amateurs doing this for fun but career professionals operating outside of US law and jurisdiction. They might have a budget to spend on markets to pay someone for passwords you&rsquo;ve used on hacked services or they might run well crafted phishing campaigns: tricky emails linking to counterfeit websites which try to get you to give up your passwords, one-time login codes, or answers to security questions.</p>
+
+<p>The GRU activity <a href="https://www.justice.gov/file/1080281/download">described by Mueller&rsquo;s team</a> falls into this category. A definitive &ldquo;upper bound&rdquo; on this sort of actor is that all their tools and explits are either publicly available or available from many vendors at commodity prices. This makes attacks cheap and the damage from a foiled attack minimal.</p>
+
+<p><strong>Tier 2</strong> actors have a significant budget to purchase non-public weaponized exploit kits and so take significant steps to prevent being caught. Often, the foiled attack cost to successful attack benefit ratio flips at this tier, with a <a href="https://blog.coinbase.com/responding-to-firefox-0-days-in-the-wild-d9c85a57f15b">public outing</a> costing the attacker more than the victim. According to <a href="https://www.lawfareblog.com/report-episode-2-hack-dump-divide">The Report</a>, the FSB had actors in this tier during the 2016 election, although public information about those attacks is notably scant in detail.</p>
+
+<p><strong>Tier 1</strong> actors spend significant amounts researching novel vulnerabilities that nobody else knows about and deploy monitoring infrastructure to <a href="https://boingboing.net/2019/05/06/cyberspy-vs-spy.html">copy</a> or <a href="https://googleprojectzero.blogspot.com/2019/08/a-very-deep-dive-into-ios-exploit.html">neutralize</a> them. A recent notable worthwhile example is China&rsquo;s mass hacking against Uyghurs (Apple&rsquo;s <a href="https://www.apple.com/newsroom/2019/09/a-message-about-ios-security/">press release</a> is worthwhile), a small piece of a largely physical-space operation learning about which is <a href="https://www.youtube.com/watch?v=v7AYyUqrMuQ">worthile</a>, as well.</p>
+
+<p>As you may have noticed, these tiers describe technical sophistication and cost / benefit risk ratios, not impact, nor persistence, and some actors can constitute coordinated groups of threats at multiple tiers. They are the building blocks of creating a <strong>Threat Model</strong>, the kinds of attacks you expect and would like to defend against.</p>
+
+<h2 id="maturity-levels">Maturity Levels</h2>
+
+<p>Parallel to threat tiers, let&rsquo;s set out some maturity levels you can operate in to keep them at bay —</p>
+
+<p>At <strong>Level A</strong> you think hard about what you say on the internet, how it would look if someone were to take a screenshot of it and find it 10 years later, or send it to your employer, or your family. You think twice before posting your address online, pictures of your house, or your keys. You review your password reset flows and don&rsquo;t pick security questions that strangers could answer. You know that there&rsquo;s a big difference between talking with someone who calling from the IRS and talking to someone after <em>you</em> dialed the phone number you know belongs to the IRS.</p>
+
+<p>At <strong>Level B</strong> you use a password manager (PM) to manage all of your passwords and all of your security questions. You recognize that typing a password into anything other than your PM is a strange and dangerous thing. You realize over 99% of people can be fooled with a well crafted phishing email and website, and you likely will, too. That&rsquo;s ok, tho, because your PM never sends your memorized passwords to other computers and double checks for you that you&rsquo;re sending the right password to the right place. My favorite PM is <a href="https://1password.com">1Password</a>, but <a href="https://www.dashlane.com">Dashlane</a> appears good and more usable. I recommend against LastPass because they&rsquo;ve had embarassingly bad mistakes in their code, but it&rsquo;s still great against most adversaries out there.</p>
+
+<p>You use a PM because you realize that if you give a password to one website, you shouldn&rsquo;t give it to another website, because you even though <em>your</em> screen shows <code>******</code> when you type your password, the people who make and maintain the website can see it, and <a href="https://www.troyhunt.com/the-javascript-supply-chain-paradox-sri-csp-and-trust-in-third-party-libraries/">sometimes</a> even a strangers whose code they reused could see it, or maybe <a href="https://krebsonsecurity.com/2019/03/facebook-stored-hundreds-of-millions-of-user-passwords-in-plain-text-for-years/">their colleagues who can read the logs</a> can see it. Bad behavior is hard to catch and harder to prove, but <a href="https://www.businessinsider.com/how-mark-zuckerberg-hacked-into-the-harvard-crimson-2010-3">unethical developers</a> could easily program a website to say &ldquo;wrong password&rdquo; just so you try some of your others.</p>
+
+<p>You use a PM because it lets you easily have random passwords for every website and you let it check that you&rsquo;re logging into the site you think you are to defeat phishing attacks. You look forward to a glorious future where we&rsquo;re logging into website with fingerprints or face scans, but are very comfortable knowing your memorized passwords stay local and your remote passwords are uniqe to every security partner.</p>
+
+<p>At <strong>Level C</strong> you install security patches within hours of their release. The timing on how quickly a security update is reversed into a weaponized attack varies greatly and you don&rsquo;t gamble with that, realizing that if you have time to shower at night, you have time to update your laptop.</p>
+
+<p>For me, the biggest behavior that helped improve my time-to-update is to wind down my work and shutt down my laptop (almost) every night. Just as with automatically managed passwords, I find a great sense of organization in keeping my work environment minimal as well as reviewing and closing down everything to wrap up my day.</p>
+
+<p>If you aren&rsquo;t sure whether things you download and run come from reputable sources, you may also get a virus scanner. On a Mac, I would trust anything recommended as &ldquo;<a href="https://objective-see.com">friends of Objective-See</a>&rdquo; with <a href="https://www.sophos.com/">Sophos</a> being the one with the most resources and also cross-platform offerings. I don&rsquo;t personally use it, but if someone I cared about asked for a recommendation, that&rsquo;s the one I would recommend they try first.</p>
+
+<p>At <strong>Level D</strong>, you also start doing the relatively inconvenient and marginally helpful things like using <a href="https://github.com/gorhill/uMatrix">uMatrix</a> to cut out unexpected third party contents in your browser, and investing in a separate virtual machine (e.g. on macOS, $220 should get you Parallels running Windows 10 running Chrome) for your &ldquo;miscellaneous&rdquo; app installation and web browsing outside of trusted Security Partners to stop the impact of an unknown or unpatched browser vulnerability being exploited, or spyware getting installed by accident.</p>
+
+<p>Getting to the more extreme, you might be starting to use separate hardware for separate tasks. This might mean a ChromeOS laptop for your web browsing that&rsquo;s on a separate network than the OpenBSD device dedicated to your security partners (e.g. your secure email machine). These increase further the cost of a successful attack via a website you visit moving into your sensitive systems. Let&rsquo;s not worry about this level too much, as threat actors here face great risks of their own with every attack and vastly exceed the value of a successful attack against most.</p>
+
+<p>These levels provide building blocks for your personal Security Framework, and do not include the kinds of resources a larger organization may be able to throw at the problem. Take a moment to think about what kinds of things you attackers you should worry about and what the best ways to get 100% on Levels A, B, and C are. Level D is mostly there as a catch-all of minor inconveniences you can add on to chip away attackers with various abilities.</p>
+
+<h2 id="take-aways-and-wrap-up">Take-aways and wrap-up</h2>
+
+<p>These framework blocks are meant help you organize your thinking about becoming more technically secure. The levels are not necessarily one-after-another: for some, executing on Level C will be easier than migrating their passwords at Level B, and maybe that fits the threats you have in mind. You might be really used to being a jerk to strangers on the internet, and so maybe Level A will be difficult. The levels are ordered to match tiers, and the order in which you take them on is up to you and your needs.</p>
+
+<p>Worth noting that some folks may prefer to change their lifestyles in less effort-intensive but more viscerally accessible ways: by simply being careful they type into a computer or say near a phone (or a watch!), or <a href="https://www.washingtonpost.com/world/2018/11/14/hes-supposed-shape-japans-cybersecurity-he-just-admitted-he-doesnt-use-computers/">not using computers at all</a>. This seems an increasingly losing proposition. The benefits of technology to both individuals and organizations have been and will continue to be exponential, not linear, and so for those of us not tasked with <a href="https://en.wikipedia.org/wiki/Stuxnet">operating nuclear centrifuges</a>, it&rsquo;s a clear-win proposition to simply move to ace the A-B-C&rsquo;s of security outlined above.</p>
+
+<p>Worth noting the framework presented, intentionally, leaves a lot of ground uncovered — you might be wondering &ldquo;what about enabling one-time login codes via SMS or 2FA?&rdquo; or &ldquo;what if someone steals my laptop bag?&rdquo;. Yes, 2FA helps a bit at Tier 2, but against fewer attacks than a PM will, and has <a href="https://www.google.com/search?q=sms+2fa+breach">semi-expected problems</a>. Physical security is a very large topic, and while common in families, where it&rsquo;s better addressed by non-technical means, it&rsquo;s a really risky and sophisticated attack for other threat actors.</p>
+
+<p>Thanks for all those who helped me proofread and expound. If you feel I&rsquo;ve missed anything else that is worth mentioning, please feel free to raise it on <a href="https://lobste.rs/">the lobste.rs thread</a>, or email me directly at <a href="mailto:com@anfedorov.me">com@anfedorov.me</a>. Last I checked, your email will pass through Google and Apple servers and be stored by Apple on Google Cloud Storage. Please don&rsquo;t encrypt it, as I&rsquo;m certain the internal controls on their laptops are better than ours.</p>
+
+			</div>
+
+			
+		</div>
+
+  </body>
+</html>
