@@ -1,6 +1,8 @@
 +++
 date = "2019-10-06"
 title = "Towards a Layperson's Security"
+linktitle = "Layperson's Security"
+menu= "main"
 +++
 
 ## Overview
