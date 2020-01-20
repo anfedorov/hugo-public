@@ -29,7 +29,7 @@ In many parts of the world, state agencies either [blatantly control](https://en
 
 Without extra systems in place, we can't even be sure that page you load is coming from Amazon at all. Maybe your friend who owns the router likes to joke around, [took control of it](https://www.dd-wrt.com/site/), and programmed it to respond "yup, just talked to Amazon, and it says they only sells goats now". There is absolutely no way for your computer to know any better.
 
-{{< figure src="/img/https-part-1/amazon.png" >}}
+{{< figure src="/img/https-part-1/goats.png" >}}
 
 Even pranks aside, absolutely anyone can give a wifi network the name of one you trust, and your computer will connect to whatever router has the strongest signal. Like most technology, wifi is built with assumptions of implicit trust, which are reconsidered one at a time as attacks become obvious or are uncovered in the wild.
 
