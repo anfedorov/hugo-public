@@ -13,7 +13,7 @@ Let's dive in. First, an overview of three core pieces to security:
 
 1) **Security Players** are (a) *Threat Actors*, who seek in some way to harm you or your mission using some technical exploit, and (b) *Security Partners*, who seek to frustrate those efforts or help you by providing services whose security matches your understanding of them,
 
-2) **Maturity Behaviors** are habits you can learn to work better with Security Actors and reduce the risk of a Threat Actor succeeding in their goals, and
+2) **Maturity Behaviors** are habits you can learn to work better with Security Partners or otherwise reduce the risk of a Threat Actor succeeding in their goals, and
 
 3) **Security Frameworks** are ways you choose to combine your behaviors with personal life decisions to achieve your mission.
 
