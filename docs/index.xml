@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>/log/thoughts</title>
@@ -26,9 +26,9 @@
       <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>//thlog.anfedorov.com/post/guardian-v-whatsapp/</guid>
-      <description>What happened?  Nathaniel Mott wrote and The Guardian published a false story about a WhatsApp &amp;ldquo;vulnerability&amp;rdquo; that&amp;rsquo;s more accurately described as a security trade-off appropriate for about 99.99% of their users and recommending folks use Signal instead.
- Outrage ensued, culminating in a rebuttal by the Signal protocol&amp;rsquo;s author and an open letter calling for an apology and retraction, co-signed by 72 academic and industry experts.
- The Guardian doubled down with an article by Tobias Boelter, the grad student responsible for the original claim, mis-representing the rebuttals as semantic arguments over what constitutes a &amp;ldquo;backdoor&amp;rdquo;.</description>
+      <description>What happened?   Nathaniel Mott wrote and The Guardian published a false story about a WhatsApp &amp;ldquo;vulnerability&amp;rdquo; that&amp;rsquo;s more accurately described as a security trade-off appropriate for about 99.99% of their users and recommending folks use Signal instead.
+  Outrage ensued, culminating in a rebuttal by the Signal protocol&amp;rsquo;s author and an open letter calling for an apology and retraction, co-signed by 72 academic and industry experts.
+  The Guardian doubled down with an article by Tobias Boelter, the grad student responsible for the original claim, mis-representing the rebuttals as semantic arguments over what constitutes a &amp;ldquo;backdoor&amp;rdquo;.</description>
     </item>
     
     <item>

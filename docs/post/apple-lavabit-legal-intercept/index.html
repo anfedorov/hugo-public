@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.71.1" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,90 +52,52 @@
     <div class="post">
   <h1>Apple, Lavabit, and Legal Intercept</h1>
   <time datetime=2015-10-11T00:00:00Z class="post-date">Sun, Oct 11, 2015</time>
-  
-
-<p>This post summarizes my thoughts about what seem to be persistent misunderstandings about Apple&rsquo;s iMessage and FaceTime cryptographic system and their relation to Lavabit&rsquo;s legal case. The post ends with some history as well as opinions about security as it pertains to communications infrastructure.</p>
-
+  <p>This post summarizes my thoughts about what seem to be persistent misunderstandings about Apple&rsquo;s iMessage and FaceTime cryptographic system and their relation to Lavabit&rsquo;s legal case. The post ends with some history as well as opinions about security as it pertains to communications infrastructure.</p>
 <h1 id="apple">Apple</h1>
-
 <p>Apple says they couldn&rsquo;t comply with a wiretap order on iMessage and FaceTime <a href="http://www.apple.com/privacy/privacy-built-in/">even if they wanted to</a>, but Nicholas Weave, echoing an idea often repeated, <a href="https://www.lawfareblog.com/iphones-fbi-and-going-dark">says otherwise</a>:</p>
-
 <blockquote>
 <p>[&hellip;] to tap Alice, it is straightforward to modify the keyserver to present an additional FBI key for Alice to everyone but Alice [and] an FBI key to every request Alice makes for any keys other than her own.</p>
-
+</blockquote>
+<blockquote>
 <p>[&hellip;] Apple’s architecture for iMessage supports wiretapping</p>
 </blockquote>
-
 <p>He is right that Apple could intercept your communications if they wanted to because they control the key servers that introduce the callers to each other. They can also do so because they made the hardware and software you use to make the call.</p>
-
-<p>The big difference between that and a wiretap is &ldquo;can the government order them to do so?&rdquo;, and the answer is &ldquo;no&rdquo;. Even if they could, because the protocol can be <a href="https://news.ycombinator.com/item?id=6435902">reverse engineered</a>, a sophisticated enough target could analyze the traffic to see the extra key.</p>
-
+<p>The big difference between that and a wiretap is &ldquo;can the government order them to do so?&quot;, and the answer is &ldquo;no&rdquo;. Even if they could, because the protocol can be <a href="https://news.ycombinator.com/item?id=6435902">reverse engineered</a>, a sophisticated enough target could analyze the traffic to see the extra key.</p>
 <p>I understand that Nicholas is not a lawyer and so might not realize that &ldquo;wiretap&rdquo; has a very specific legal definition. Neither am I, but I think it goes something like this:</p>
-
 <ul>
 <li>It&rsquo;s a power we&rsquo;ve decided to give investigators</li>
 <li>once they get approval from a judge</li>
 <li>to order communications to be copied over to them.</li>
 </ul>
-
 <p>In security lingo, a wiretap allows investigators and judges to order a company to perform a <a href="https://en.wikipedia.org/wiki/Passive_attack">passive attack</a> on information flowing through their systems.</p>
-
 <p>I imagine the reasoning for giving judges this power is very much like that of a subpoena order used to hand over information or compel testimony related to a case. But there is no legal reasoning which justifies ordering someone to lie, be it to their friends or family, customers or business partners. This is as true for Apple&rsquo;s key servers as it is for an online search for a doctor. Ordering people or companies to lie is simply not the kind of power investigators or judges have [1].</p>
-
 <h1 id="lavabit">Lavabit</h1>
-
 <p>Lavabit&rsquo;s &ldquo;secure&rdquo; email system&rsquo;s design was flawed in light of the laws they operated under. I&rsquo;m not wholly sure why Snowden (allegedly) chose to use their service, but it almost certainly wasn&rsquo;t because he expected his emails to remain hidden from a federal investigation.</p>
-
 <p>At the crux of Lavabit&rsquo;s failure is that they didn&rsquo;t use <a href="https://en.wikipedia.org/wiki/Forward_secrecy">forward secrecy</a> on their https connections, something OpenSSL has supported <a href="http://googleonlinesecurity.blogspot.com.au/2011/11/protecting-data-for-long-term-with.html">since 2011</a>. This means that handing over their private key rendered all of their user&rsquo;s traffic retroactively insecure.</p>
-
 <p>So when a judge ordered Lavabit to hand over their key because it fit the definition of information pertaining to a crime, they responded with the legal equivalent of a hissy fit. After some fines and what I imagine as stern talks from their lawyers boiling down to &ldquo;unless you want to go to jail for a while, you should obey the judge&rsquo;s orders&rdquo;, they decided to forgo the promises made to their users, hand over their private keys, and close shop.</p>
-
 <p>Had Lavabit used forward secrecy, they would have been in a significantly stronger legal position to protect their customer&rsquo;s privacy because a judge cannot order them to keep using a compromized key, and forward secrecy would ensure the key wasn&rsquo;t useful retroactively.</p>
-
 <h1 id="more-than-wiretaps">More than wiretaps</h1>
-
 <p>Although it&rsquo;s outside of the scope of the point I&rsquo;m trying to make in this article, it&rsquo;s important to note that the executive has other tools at their disposal for extraordinary crimes like terrorism, espionage, and sophisticated criminal conspiracies.</p>
-
 <p>The legal details here vary, but there are <a href="https://en.wikipedia.org/wiki/National_security_letter">administrative subpoenas</a>, which could force an Apple employee to hand over their private key without telling the company [2], <a href="https://en.wikipedia.org/wiki/Executive_Order_12333">executive orders</a> which reorganize the rules that the executive agencies work under, and plain old hacking authorized by <a href="https://en.wikipedia.org/wiki/Authorization_for_Use_of_Military_Force_Against_Terrorists">AUMF&rsquo;s</a>. Checks on these are significantly more complex because they involve disclosing secret techniques and methods to more parties, sometimes even the targets, and so using them is not wise for the prosecution of ordinary crimes.</p>
-
 <p>As long as there exist extraordinary crimes, investigator require extraordinary powers to combat them. Of course checks on these powers are needed, but they are fundamentally different from those on a wiretap order.</p>
-
 <h1 id="some-history">Some History</h1>
-
 <p>While state sponsored hackers and the like are interesting, the availability of end-to-end crypto affect us immeasurably more day-to-day. The most complete evaluation of cryptographic communications I can find was <a href="https://www.eff.org/secure-messaging-scorecard">done by the EFF</a>. In this section, I want to add some history to the services you have likely heard of:</p>
-
-<h3 id="microsoft-s-skype">Microsoft&rsquo;s Skype</h3>
-
+<h3 id="microsofts-skype">Microsoft&rsquo;s Skype</h3>
 <p>The original architecture of Skype as released in 2003 had a peer-to-peer network and needed to be end-to-end encrypted so that routing peers couldn&rsquo;t listen in on calls. The eBay acquisition in 2005 did not include the p2p network that routed these calls, and Skype remained an end-to-end encrypted service until Microsoft acquired it in 2011 and replaced the p2p infrastructure with one that routes all calls through their servers.</p>
-
-<h3 id="google-s-hangouts">Google&rsquo;s Hangouts</h3>
-
+<h3 id="googles-hangouts">Google&rsquo;s Hangouts</h3>
 <p>A similar story happened with the <a href="http://gmailblog.blogspot.com/2008/11/say-hello-to-gmail-voice-and-video-chat.html">Gmail voice and video chat plugin</a> introduced in 2008, which connected callers directly over the internet and so required end-to-end encryption for similar reasons. That was deprecated and replaced with Hangouts in 2013, which routes all traffic through Google servers. Although I hear that Google intends to again provide end-to-end encryption by default in the near future, their currently mass-deployed systems all include access to the contents of the message and are susceptible to wiretaps.</p>
-
-<h3 id="facebook-s-messanger">Facebook&rsquo;s Messanger</h3>
-
+<h3 id="facebooks-messanger">Facebook&rsquo;s Messanger</h3>
 <p>Facebook&rsquo;s messenger started by using Microsoft&rsquo;s Skype technology and recently replaced it with their own centralized routing infrastructure. As far as I can tell, end-to-end crypto and challenging wiretaps has never been on Facebook&rsquo;s radar.</p>
-
-<h3 id="apple-s-imessage-and-facetime">Apple&rsquo;s iMessage and FaceTime</h3>
-
+<h3 id="apples-imessage-and-facetime">Apple&rsquo;s iMessage and FaceTime</h3>
 <p>Apple has the largest deployed telecom system which uses end-to-end crypto and is not susceptible to wiretap orders. Unlike Lavabit, though, Apple seems to have checked the laws before building the system, not after receiving a subpoena. In jurisdictions where such systems are illegal (e.g. Saudi Arabia) Apple <a href="https://support.apple.com/en-us/HT204042">disables FaceTime entirely</a>.</p>
-
-<h3 id="blackberry-s-bbm-protected">Blackberry&rsquo;s BBM Protected</h3>
-
+<h3 id="blackberrys-bbm-protected">Blackberry&rsquo;s BBM Protected</h3>
 <p>The enterprise messenger from Blackberry, <a href="http://us.blackberry.com/enterprise/products/bbm-protected.html">BBM Protected</a> was introduced in 2014 with end-to-end crypto for chats. Although I haven&rsquo;t used it personally, I hear it&rsquo;s quite popular in the business world.</p>
-
 <h3 id="open-whisper-systems">Open Whisper Systems</h3>
-
 <p><a href="https://whispersystems.org">Open Whisper Systems</a> also provides end-to-end cryptography on voice calls and text chats, but relatively few people use them. The biggest design difference between their system and the two before is that they have released their source code, meaning finding weaknesses in their design or implementation doesn&rsquo;t involve any reverse engineering and so is cheaper both for security researchers and attackers alike. Given their relatively limited resources and deployment, this trade-off makes a lot of sense.</p>
-
 <h1 id="opinions">Opinions</h1>
-
 <p>A security system is like a chain in that it is as strong as its weakest link.</p>
-
 <p>There is little contention that adding support for wiretap orders to communications infrastructure increases the number of links in its chain and so can only decrease its security. This is especially true against passive attackers acting not wholly within the law, such as in cases of <a href="https://en.wikipedia.org/wiki/Operation_Aurora">foreign espionage</a> or <a href="http://cdn01.androidauthority.net/wp-content/uploads/2014/06/SSL-Added-and-Removed-Here.jpg">sub-legal intercept</a>.</p>
-
 <p>Let&rsquo;s look at a couple of links in this chain:</p>
-
 <ul>
 <li><em>The Superusers</em>: People who have access to internal tools need to have that access logged and reviewed. If they interact with strangers, they should be aware of possible phishing attacks. This is pretty obvious, not enormously costly, and straightforward to implement.</li>
 <li><em>The Coders</em>: Reviewing each other&rsquo;s code before deploying it is standard practice for software engineers, as is keeping a version history of who changed what and when. This makes sneaking backdoors into code a relatively high-risk attack.</li>
@@ -143,27 +105,16 @@
 <li><em>The Datacenter Technicians</em>: I&rsquo;m not totally sure what goes into the physical security of a datacenter, but add to the chain all of the people with unchecked physical access to the hardware.</li>
 <li><em>The Hardware Manufacturers</em>: I know next to nothing about this, just that manufacturers might ship corrupted hardware.</li>
 </ul>
-
-<p>Now, ask yourself &ldquo;how strong is the weakest link?&rdquo;. There sure are a lot of them, and many are human! This is why organizations who care about building highly secure systems do extensive background checks on every employee, rejecting anyone with any potential for blackmail or undue influence, and even then <a href="https://www.schneier.com/blog/archives/2013/07/nsa_implements.html">make them pair up</a>. I have yet to hear of this being done in the private sector, even at companies which may soon be <a href="https://www.washingtonpost.com/news/the-switch/wp/2014/05/22/nsa-reform-bill-passes-house-despite-loss-of-support-from-privacy-advocates/">handling the metadata of all of our phone calls</a>.</p>
-
+<p>Now, ask yourself &ldquo;how strong is the weakest link?&quot;. There sure are a lot of them, and many are human! This is why organizations who care about building highly secure systems do extensive background checks on every employee, rejecting anyone with any potential for blackmail or undue influence, and even then <a href="https://www.schneier.com/blog/archives/2013/07/nsa_implements.html">make them pair up</a>. I have yet to hear of this being done in the private sector, even at companies which may soon be <a href="https://www.washingtonpost.com/news/the-switch/wp/2014/05/22/nsa-reform-bill-passes-house-despite-loss-of-support-from-privacy-advocates/">handling the metadata of all of our phone calls</a>.</p>
 <p>The costs of background checks and access reviews is real and measurable. There is also the less quantifiable but very costly atmosphere of distrust between coworkers that pairing entails. Unlike a background check at the entrance which creates an in-group of trusted people, pairing enforces a mindset between colleagues as potential adversaries trying to sneak one past you.</p>
-
 <p>Many of these costs can be mitigated by using end-to-end encryption. In particular, if the datacenter never sees the plain text of the message, the majority of passive attacks by insiders vanishes. Active attacks are still possible, but significantly more risky for the attacker.</p>
-
 <p>While it&rsquo;s important to acknowledge that legal intercept is an enormously valuable tool used by law enforcement today in a variety of circumstances, it&rsquo;s also worthwhile to realize that its value is decreasing every year and that it&rsquo;s nearly worthless against even moderately sophisticated actors. The costs of maintaining highly secure systems which also support wiretaps is more than most, if not all, private companies are willing to bear.</p>
-
 <p>It might be time to look at the costs to productivity and security of supporting wiretap orders which only works against unsophisticated actors anyway, and ask whether we will prosper more by building communication systems which support end-to-end encryption for everyone, instead.</p>
-
 <p>End-to-end encryption is not new. It has been available to techies for decades, broadly deployed by Skype from 2003 to 2011, and now by iMessage and FaceTime since 2012. While it&rsquo;s true that both technologies have been used to make <a href="http://www.theregister.co.uk/2013/04/04/leaked_imessage_memo_dea_denied/">some criminal prosecutions more difficult</a>, they have most certainly been used to protect the targets of attacks, as well.</p>
-
 <p>[1] This is not to be confused with a gag order, where a judge can order someone to keep from commenting publicly on a legal matter, or keep quiet about something else.</p>
-
 <p>[2] Unlikely, if their legal orientations are anything like Google&rsquo;s. Another possibility is that Apple receives and complies with a subpoena but does not change its private key.</p>
-
 <p><em>Earlier versions of this post erroneously mentioned a subpoena issued to Lavabit where the courts had actually used a <a href="https://www.law.cornell.edu/uscode/text/18/3123">pen register order</a> to get Lavabit&rsquo;s encryption keys.</em></p>
-
 <p><em>Thanks for reading. Feel free to <a href="mailto:me@anfedorov.com">shoot me an email</a> with corrections, questions, or thoughts.</em></p>
-
 <p><em>Thanks, also, to everyone who proofread and provided feedback on this post. This work is licensed under a <a href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</em></p>
 
 </div>

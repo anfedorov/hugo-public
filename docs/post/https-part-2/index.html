@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.71.1" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,94 +52,61 @@
     <div class="post">
   <h1>Part 2: Crypto Magic</h1>
   <time datetime=2015-07-25T00:00:00Z class="post-date">Sat, Jul 25, 2015</time>
-  
-
-<p><em>This piece is part 2 of a series about cryptography on the web. It outlines the building blocks, following up <a href="/post/https-part-1">the first part</a>, which explained why cryptography on the internet is needed in the first place.</em></p>
-
+  <p><em>This piece is part 2 of a series about cryptography on the web. It outlines the building blocks, following up <a href="/post/https-part-1">the first part</a>, which explained why cryptography on the internet is needed in the first place.</em></p>
 <h3 id="i-overview">I. Overview</h3>
-
 <p>From the outside, cryptography is very much like magic. Unlike the magic in Harry Potter which mostly works with <em>things</em>, however, cryptography works with <em>data</em>. Admittedly, that&rsquo;s not as cool, but it is real and used billions of times a day all around you. Most importantly, you can actually learn it and use it yourself.</p>
-
 <p>Crypto algorithms can do much more than encrypt things with a password. They can allow you to compare code words with someone without revealing what they are, or allow two people to figure out who holds a bigger number without finding out anything about the other&rsquo;s. We can look at those later. For right now, let&rsquo;s look at the crypto systems behind this green lock:</p>
-
 <figure>
     <img src="/img/https-part-2/https2.png"/> 
 </figure>
 
-
 <p>What that lock means is that even if you&rsquo;ve never talked with anyone at Amazon, nor communicated with any device controlled by them before, and <em>even then</em>, if you talk to Amazon only through a chain of untrusted links, you are assured of two things:</p>
-
 <ul>
 <li>that your computer is talking to Amazon, and</li>
 <li>that no intermediary in the chain connecting you knows what is said.</li>
 </ul>
-
 <p>To begin explaining how this is possible, we first need to drill down into two fundamental building blocks of crypto: symmetric and asymmetric cryptography.</p>
-
 <h3 id="ii-symmetric-cryptography">II. Symmetric Cryptography</h3>
-
 <figure>
     <img src="/img/https-part-2/key.png"/> 
 </figure>
 
-
 <p>Symmetric cryptography is the older and simpler of the two. It uses a password to encrypt and decrypt data, where <em>encrypted</em> means the information is hidden from anyone without the password. Such encrypted data is called <em>cyphertext</em>, and to someone without the key, it&rsquo;s indistinguishable from random noise. Unlike some TV shows might lead you to think, modern encryption with a long password is most likely not breakable in any reasonable amounts of time. This might change with future technologies, but it&rsquo;s definitely unbreakable with today&rsquo;s.</p>
-
 <p>Since the password used is not actually a word or even anything humans ever look at, it&rsquo;s called a &ldquo;key&rdquo;, instead. When you check your Amazon order history, your computer and Amazon&rsquo;s server have a <em>shared secret key</em> that nobody else knows, and encrypting and decrypting things with that keys is very fast.</p>
-
 <figure>
     <img src="/img/https-part-2/sym.png"/> 
 </figure>
 
-
 <p>As we pointed out in the first post, the connection to Amazon is going through a chain of other not-necessarily-trusted computers. So how do you share that key and still keep it secret?</p>
-
 <p>The short answer is simply &ldquo;math&rdquo;. It&rsquo;s not proven beyond all possibility, but as far as we can tell, there&rsquo;s an algorithm that would let you and your friend shout a few big numbers at each other across a crowded room and come up with a shared secret that nobody else knows, even if they&rsquo;ve heard every word. That&rsquo;s what computers around the world do billions of times a day and it&rsquo;s called the <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">Diffie–Hellman key exchange</a> (or DH for short).</p>
-
 <p>While this makes sure that your computer is talking over a channel secure from eavesdroppers, it still does not authenticate <em>whom</em> it&rsquo;s actually talking to. For that, we need another kind of cryptography.</p>
-
 <h3 id="iii-asymmetric-cryptography">III. Asymmetric Cryptography</h3>
-
 <p>Asymmetric cryptography uses pairs of keys that have a special bond. One is the <em>private key</em> that you keep secret (like a password). The other, which is generated from the first, is called the &ldquo;public key&rdquo; and you give it to anyone who wants it.</p>
-
 <figure>
     <img src="/img/https-part-2/pripub.png"/> 
 </figure>
 
-
 <p>Their bond makes two algorithms possible:</p>
-
 <p><em>Asymmetric encryption</em> uses the public key to encrypt some data which only the private key can decrypt.</p>
-
 <figure>
     <img src="/img/https-part-2/asymenc.png"/> 
 </figure>
 
-
 <p><em>Signing</em> uses the private key and a message to generate a signature that can be verified as legitimate using the public key.</p>
-
 <figure>
     <img src="/img/https-part-2/asycsig.png"/> 
 </figure>
 
-
 <p>These operations are quite a bit slower than symmetric encryption, but can be quite useful in a pinch.</p>
-
 <p>Since public keys can themselves be part of a message, one can somewhat cleverly use the private key of one pair to sign the public key of another:</p>
-
 <figure>
     <img src="/img/https-part-2/key-legit.png"/> 
 </figure>
 
-
 <p>This is generally called &ldquo;key signing&rdquo;, and if you have the public part of the signing pair, you can then verify the signed key as legitimate. Combining multiple pairs in this way is used to create chains of signatures, each valid for signing less than the one before it.</p>
-
 <p>The signature can be bundled with extra data like expiration dates in a format called X.509. This bundle of {explanation, public key, signature} is then called a &ldquo;certificate&rdquo;. Using certificates, we can build a more trustworthy chain to verify that we really are talking to Amazon.</p>
-
 <h3 id="iv-back-to-the-real-world">IV. Back to the real world</h3>
-
 <p>This part explained the building blocks that our mathematicians provide our software. The third part will combine those blocks with the real world. If you&rsquo;d like to learn about a business with better profit margins than printing $100 bills, read on to <a href="mailto:me@anfedorov.com">Part 3: The Real World</a> (coming soon!).</p>
-
 <p><em>Many thanks to Aagje van der Meer for proofreading and providing feedback on drafts of this post. The contents of this post are licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</em></p>
 
 </div>

@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.71.1" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,32 +53,23 @@
   <h1>VPN and WebRTC</h1>
   <time datetime=2015-07-28T00:00:00Z class="post-date">Tue, Jul 28, 2015</time>
   <p>A <a href="https://www.privacytools.io/webrtc.html">curious demo</a> where a web server sends you JS that sends back your internal network IP address via <a href="https://en.wikipedia.org/wiki/STUN">the STUN protocol</a> intended to work around the structure of NAT&rsquo;s for peer-to-peer connections. What does that leak about a VPN connection?</p>
-
 <p>Over PPTP:</p>
-
 <figure>
     <img src="/img/PPTP.png"/> 
 </figure>
 
-
 <p>Well, that&rsquo;s worrying.</p>
-
 <p>What about over L2TP?</p>
-
 <figure>
     <img src="/img/L2TP.png"/> 
 </figure>
 
-
 <p>hm&hellip; and over OpenVPN?</p>
-
 <figure>
     <img src="/img/openvpn.png"/> 
 </figure>
 
-
 <p>Well, that&rsquo;s somewhat comforting, at least.</p>
-
 <p><code>todo.add('learn how the VPN wizardry works')</code></p>
 
 </div>
